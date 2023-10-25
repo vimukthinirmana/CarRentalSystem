@@ -1,0 +1,43 @@
+/*.welcomePage{
+    width: 100%;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+}
+.label1{
+    position: absolute;
+    margin-top: 50vh;
+    margin-left: 20vw;
+}*/
+.signupBtn {
+    color: white;
+    background-color: #0a58ca;
+    border-radius: 15px;
+    margin-right: 20px;
+}
+
+.signupBtn:hover {
+    color: #0a58ca;
+    background-color: #ffffff;
+}
+
+.transparent-box {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.txtlable {
+    font-weight: 600;
+    color: #1a1d20;
+}
+
+/*
+.welSearchBtn {
+    width: 8vw;
+    position: absolute;
+    align-items: center;
+
+}*/
+.carlogo{
+    width: 40%;
+}

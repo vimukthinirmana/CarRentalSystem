@@ -2,9 +2,164 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>car rental home page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental System</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <script src="assets/js/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/homeStyle.css">
 </head>
 <body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-opacity-100">
+    <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="font-weight: 600">
+        <ul class="nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Rent</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li>
+                <a class="nav-link loginBtn" href="#">Log In</a>
+            </li>
+            <li>
+                <a class="nav-link signupBtn" href="#">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<section class="hero">
+    <div class="container  text-start mt-5">
+        <h1 class="col-4" style="font-family: 'Arial Rounded MT Bold'">WE RENT THE
+            HIGHEST CALIBER
+            AUTOMOBILES</h1>
+        <p class="col-5">Explore our fleet of cars for your next adventure.
+            Find Book
+            and rental car in Essy Steps
+        </p>
+        <div class="col-5 col">
+            <a href="#" class="btn btn-primary">Rent Now</a>
+            <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+
+
+    </div>
+</section>
+
+<div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 40vh;">
+        <div class="col-12">
+            <div class="transparent-box">
+                <form class="row g-3">
+                    <div class="col-3">
+                        <label for="location" class="form-label txtlable">Location</label>
+                        <input type="text" class="form-control" id="location" placeholder="Enter Location">
+                    </div>
+                    <div class="col-3">
+                        <label for="pickupDate" class="form-label txtlable">Pickup Date</label>
+                        <input type="date" class="form-control" id="pickupDate">
+                    </div>
+                    <div class="col-3">
+                        <label for="returnDate" class="form-label txtlable">Return Date</label>
+                        <input type="date" class="form-control" id="returnDate">
+
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-primary  mt-3 mx-5 "
+                                style="width: 10vw; border-radius: 15px;height: 8vh">Search
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-1">
+    <div class="row justify-content-center align-items-center " style="height: 20vh;">
+        <div class="row ">
+            <div class="col-2">
+                <img class="carlogo" src="assets/logo/icons8-car-logo-250.png">
+            </div>
+            <div class="col-2">
+                <img class="carlogo" src="assets/logo/icons8-car-logo-250%20(2).png">
+            </div>
+            <div class="col-2">
+                <img class="carlogo" src="assets/logo/icons8-car-logo-250%20(3).png">
+            </div>
+            <div class="col-2">
+                <img class="carlogo" src="assets/logo/icons8-car-logo-250%20(4).png">
+            </div>
+            <div class="col-2">
+                <img class="carlogo" src="assets/logo/icons8-tesla-250.png">
+            </div>
+            <div class="col-2">
+                <img class="carlogo" src="assets/logo/icons8-ferrari-250.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="container mt-5">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-8 text-center">
+            <h6 style="color:#5c636a;">HOW TO WORK</h6>
+            <h2 style="font-weight: bold">Rent with the following 3 work steps</h2>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="container mt-2">
+    <div class="row justify-content-center align-items-center">
+        <div class="row">
+            <div class="text-center col-4 shadow">
+                <div class=" p-3 mb-5 bg-white rounded">
+                    <img style="width: 20%" src="assets/logo/location-pin.png">
+                </div>
+                <p>Choose Location</p>
+            </div>
+
+            <div class="text-center col-4 shadow">
+                <div class=" p-3 mb-5 bg-white rounded">
+                    <img style="width: 20%" src="assets/logo/calendar.png">
+                </div>
+                <p>Pick-Up Date</p>
+            </div>
+
+            <div class="text-center col-4 shadow">
+                <div class=" p-3 mb-5 bg-white rounded">
+                    <img style="width: 20%" src="assets/logo/sport-car.png">
+                </div>
+                <p>Book your Car</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer class="footer bg-black">
+    <div class="container text-center">
+        <p>&copy; 2023 Car Rentals</p>
+    </div>
+</footer>
+
 
 </body>
 </html>
