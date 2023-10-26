@@ -2,9 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Authentication</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication Page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="../assets/js/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/homeStyle.css"> <!-- Your custom CSS file -->
+
 </head>
 <body>
+
+<section class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-opacity-100">
+        <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="font-weight: 600">
+            <ul class="nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Rent</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li>
+                    <a class="nav-link loginBtn" href="#" id="nav-login">Log In</a>
+                </li>
+                <li>
+                    <a class="nav-link signupBtn" href="#" id="nav-signup">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>
+
+<!--login-->
+<main class="container-fluid border rounded-3 col-6 mt-5" id="login-section">
+    <section class="row justify-content-center">
+        <div class="col-md-6">
+            <form class="login-form text-center">
+                <h2 class="mb-4 m-3">Login</h2>
+                <div class="justify-content-center m-4">
+                    <img src="/assets/logo/userprofile.png" style="width: 50%">
+                </div>
+                <h5 class="mb-1" style="font-family: Arial;font-size: 10px; color: #5c636a">Fill your correct UserName and Password</h5>
+                <div class="form-group mb-2">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="user name">
+                    </div>
+                </div>
+                <div class="form-group mb-2">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-user-lock" style="color: #000000;"></i></span>
+                        <input type="password" class="form-control" placeholder="password">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary m-3">Login</button>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+<!--signup page-->
+<main class="container-fluid" id="signup-section">
+    <section class="row justify-content-center">
+        <div class=" col-md-6">
+            <form>
+                <h2 class="mb-4">Sign Up</h2>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control" placeholder="Customer ID">
+                </div>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control" placeholder="Username">
+                </div>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="Password">
+                </div>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control" placeholder="Email">
+                </div>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control" placeholder="NIC">
+                </div>
+                <div class="mb-3">
+                    <label for="nic-photo" class="form-label">NIC Photo (Upload Image)</label>
+                    <input type="file" class="form-control" id="nic-photo">
+                </div>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control" placeholder="License Number">
+                </div>
+                <div class="mb-3">
+                    <label for="license-photo" class="form-label">License Photo (Upload Image)</label>
+                    <input type="file" class="form-control" id="license-photo">
+                </div>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
+                    <input type="text" class="form-control" placeholder="Address">
+                </div>
+                <div class="mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                    <input type="text" class="form-control" placeholder="Contact Number">
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </section>
+
+
+
+
+    <script src="../assets/js/jquery-3.7.0.min.js"></script>
+    <script>
+        document.getElementById("login-section");
+        document.getElementById("login-section").style.display = "none";
+        document.getElementById("signup-section").style.display = "black";
+
+        document.getElementById("nav-signup").addEventListener("click", function () {
+            document.getElementById("signup-section").style.display = "block";
+            document.getElementById("login-section").style.display = "none";
+        });
+
+        document.getElementById("nav-login").addEventListener("click", function () {
+            document.getElementById("signup-section").style.display = "none";
+            document.getElementById("login-section").style.display = "block";
+        });
+    </script>
+
+</main>
 
 </body>
 </html>
