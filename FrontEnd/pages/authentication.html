@@ -8,8 +8,23 @@
     <link rel="stylesheet" href="styles.css">
     <script src="../assets/js/jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../assets/css/homeStyle.css"> <!-- Your custom CSS file -->
+    <link rel="stylesheet" href="../assets/css/homeStyle.css">
+    <script src="../controller/authenticationController.js"></script> <!-- Your custom CSS file -->
 
+
+<style>
+    .transparentBackdrop{
+        background: rgba( 255, 255, 255, 0.05 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 0.5px );
+        -webkit-backdrop-filter: blur( 0.5px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+
+</style>
+    <link rel="stylesheet" href="../assets/fonts-awesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/fonts-awesome/css/fontawesome.min.css">
 </head>
 <body>
 
@@ -23,7 +38,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="font-weight: 600">
             <ul class="nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.html">Home</a>
+                    <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Rent</a>
@@ -46,11 +61,11 @@
 </section>
 
 <!--login-->
-<main class="container-fluid border rounded-3 col-6 mt-5" id="login-section">
+<main class="container-fluid border rounded-5 col-6 mt-5 mb-5 transparentBackdrop" id="login-section">
     <section class="row justify-content-center">
         <div class="col-md-6">
             <form class="login-form text-center">
-                <h2 class="mb-4 m-3">Login</h2>
+                <h2 class="mb-4 m-3 text-center">Login</h2>
                 <div class="justify-content-center m-4">
                     <img src="/assets/logo/userprofile.png" style="width: 50%">
                 </div>
@@ -75,55 +90,79 @@
 
 
 <!--signup page-->
-<main class="container-fluid" id="signup-section">
+<main class="container-fluid border rounded-5 col-8 mt-5 mb-lg-5 transparentBackdrop" id="signup-section">
     <section class="row justify-content-center">
-        <div class=" col-md-6">
-            <form>
-                <h2 class="mb-4">Sign Up</h2>
+        <div class="col-auto ">
+            <h2 class="mt-2 mb-4 text-center text-primary fw-bold">SignUp</h2>
+            <form >
                 <div class="mb-3 input-group">
-                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input type="text" class="form-control" placeholder="Customer ID">
+                    <label for="customer-Id" class="form-label">Customer ID : </label>
+                    <label type="text" class="form-label" id="customer-Id" placeholder="Enter Customer ID"></label>
                 </div>
-                <div class="mb-3 input-group">
-                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input type="text" class="form-control" placeholder="Username">
+                <div class="mb-3 col-auto">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="name" class="form-control" id="name" placeholder="name">
                 </div>
-                <div class="mb-3 input-group">
-                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                    <input type="password" class="form-control" placeholder="Password">
+
+                <div class="d-flex mb-3 col-auto">
+                    <div class=" me-auto">
+                        <label for="username" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="username" placeholder="Username">
+                    </div>
+
+                    <div class="">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
                 </div>
-                <div class="mb-3 input-group">
-                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
-                    <input type="email" class="form-control" placeholder="Email">
+
+                <div class="d-flex mb-3 col-auto">
+                    <div class="me-auto">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div>
+                        <label for="contact-number" class="form-label"> Contact Number</label>
+                        <input type="text" class="form-control" id="contact-number" placeholder="Contact Number">
+                    </div>
                 </div>
-                <div class="mb-3 input-group">
-                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input type="text" class="form-control" placeholder="NIC">
-                </div>
+
                 <div class="mb-3">
-                    <label for="nic-photo" class="form-label">NIC Photo (Upload Image)</label>
-                    <input type="file" class="form-control" id="nic-photo">
+                    <label for="address" class="form-label"> Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Address">
                 </div>
-                <div class="mb-3 input-group">
-                    <span class="input-group-text"><i class="bi bi-person"></i></span>
-                    <input type="text" class="form-control" placeholder="License Number">
-                </div>
+
                 <div class="mb-3">
-                    <label for="license-photo" class="form-label">License Photo (Upload Image)</label>
-                    <input type="file" class="form-control" id="license-photo">
+                    <label for="nic" class="form-label">NIC Number</label>
+                    <input type="text" class="form-control" id="nic" placeholder="NIC">
                 </div>
-                <div class="mb-3 input-group">
-                    <span class="input-group-text"><i class="bi bi-geo-alt"></i></span>
-                    <input type="text" class="form-control" placeholder="Address">
+
+                <div class="mb-3">
+                    <label for="license-number" class="form-label">License Number</label>
+                    <input type="text" class="form-control" id="license-number" placeholder="License Number">
                 </div>
-                <div class="mb-3 input-group">
-                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
-                    <input type="text" class="form-control" placeholder="Contact Number">
+
+
+                <div class="d-flex mb-3 col-auto" >
+                    <div class="col-5 me-auto">
+                        <label for="license-photo" class="form-label">License Photo (Upload Image)</label>
+                        <input type="file" class="form-control" id="license-photo">
+                    </div>
+                    <div class="col-5">
+                        <label for="nic-photo" class="form-label">NIC Photo (Upload Image)</label>
+                        <input type="file" class="form-control" id="nic-photo">
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+
+                <div class="d-flex mb-3 col-auto m-auto justify-content-center">
+                    <button type="submit" class="btn btn-primary ">Sign Up</button>
+                </div>
+
             </form>
+
         </div>
     </section>
+
 
 
 
@@ -146,6 +185,39 @@
     </script>
 
 </main>
+
+<footer class="bg-dark text-light py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Contact Us</h3>
+                <p>123 Car Rental Way</p>
+                <p>City, State 12345</p>
+                <p>Phone: (123) 456-7890</p>
+                <p>Email: info@carrental.com</p>
+            </div>
+            <div class="col-md-4">
+                <h3>Quick Links</h3>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">rent</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h3>Follow Us</h3>
+                <p>Stay connected with us on social media</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
