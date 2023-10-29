@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rental-Request Dashboard</title>
-    <script src="../assets/js/jquery-3.7.0.min.js"></script>
+    <title>Driver Dashboard</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fonts-awesome/css/all.min.css">
+    <script src="../assets/js/jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="../assets/css/homeStyle.css">
 
     <style>
 
     </style>
+    <script src="../controller/driver-DashboardController.js"></script>
 
 </head>
 <body>
@@ -23,32 +25,50 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="font-weight: 600">
         <ul class="nav">
             <li class="nav-item active">
-                <a class="nav-link" href="../index.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="pages/rental-request.html">Rent</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="pages/cars-page.html">Cars</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
             </li>
-            <li>
+           <!-- <li>
                 <a class="nav-link loginBtn" href="pages/authentication.html">Log In</a>
-            </li>
-            <li>
-                <a class="nav-link signupBtn" href="pages/authentication.html">Sign Up</a>
+            </li>-->
+            <li class="nav-item border me-1">
+                <a class="nav-link" href="#"><i class="fas fa-car"></i> Driver-Dashboard</a>
             </li>
         </ul>
     </div>
 </nav>
 
 
-<!-- //////////////////////////////////// -->
 
 
+<main class="mt-2">
+<section class="container col-9">
+    <h2 class="text-center text-primary fw-bold mb-3">Driver Schedule</h2>
+    <table class="table table-striped">
+        <thead class="tblDriverSchedule table-primary">
+        <tr>
+            <th>Rent ID</th>
+            <th>Pick Up Date</th>
+            <th>Pick Up Time</th>
+            <th>Return Date</th>
+            <th>Return Time</th>
+            <th>Car Register Number</th>
+        </tr>
+        </thead>
+        <tbody id="tblDriverSchedule">
 
+        </tbody>
+    </table>
+</section>
+</main>
 
 </body>
 </html>

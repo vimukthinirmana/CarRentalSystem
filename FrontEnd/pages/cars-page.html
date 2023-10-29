@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car-Details</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <script src="../assets/js/jquery-3.7.0.min.js"></script>
+    <link rel="stylesheet" href="../assets/css/homeStyle.css">
+
+<style>
+
+</style>
+    <script src="../controller/cars-pageController.js"></script>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-opacity-100">
+    <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="font-weight: 600">
+        <ul class="nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pages/rental-request.html">Rent</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pages/cars-page.html">Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <li>
+                <a class="nav-link loginBtn" href="pages/authentication.html">Log In</a>
+            </li>
+            <li>
+                <a class="nav-link signupBtn" href="pages/authentication.html">Sign Up</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<main class="mt-2" id="viewCars">
+    <section class="justify-content-center col-6">
+        <form class="m-2">
+            <div class="d-flex mb-3 col-auto">
+                    <div>
+                        <select name="type" id="searchBy" class="form-select">
+                            <option value="REG_NUM" selected>Vehicle Number</option>
+                            <option value="BRAND">Brand</option>
+                            <option value="COLOR">Color</option>
+                        </select>
+                    </div>
+                <div class="me-auto">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search">
+                </div>
+
+                <div class="col-auto">
+                    <select name="type" id="fuelTypes" class="form-select">
+                        <option value="ALL" selected>All</option>
+                        <option value="PETROL">Petrol</option>
+                        <option value="DIESEL">Diesel</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+
+        </form>
+    </section>
+</main>
+
+
+</body>
+</html>
