@@ -3,8 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin-Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fonts-awesome/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/homeStyle.css">
+    <style>
+
+    </style>
+    <script src="../assets/js/jquery-3.7.0.min.js"></script>
 </head>
 <body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-opacity-100">
+    <button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav" style="font-weight: 600">
+        <ul class="nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pages/rental-request.html">Rent</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="pages/cars-page.html">Cars</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            <!-- <li>
+                 <a class="nav-link loginBtn" href="pages/authentication.html">Log In</a>
+             </li>-->
+            <li class="nav-item border me-1">
+                <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin-Dashboard</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--////////////////////////-->
+<main>
+    <ul class="nav nav-tabs justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#" id="nav-adminHomePane"><i class="fas fa-user"></i> Admin Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="nav-cusManagePane"><i class="fas fa-drivers-license" ></i> Manage Customers </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="nav-driverManagePane"><i class="fas fa-drivers-license" ></i> Manage Drivers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="nav-carManagePane"><i class="fas fa-drivers-license" ></i> Manage Cars</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"id="nav-rentManagePane"><i class="fas fa-car-tunnel" ></i> Manage Rents</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="nav-paymentManagePane"><i class="fas fa-money-bill"></i> Payment</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" id="nav-reportPane"><i class="fas fa-bar-chart"></i> Report</a>
+        </li>
+    </ul>
+</main>
+
+<!--/////////////////////////-->
+
+<!--<div class="container-fluid">
+    <div class="row">
+        &lt;!&ndash; Left Sidebar &ndash;&gt;
+        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-opacity-100 sidebar border rounded-1" >
+            <div class="position-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2 mt-2 border">
+                        <a class="nav-link active fw-semibold" href="#"><i class="fas fa-user"></i>  Admin Dashboard</a>
+                    </li>
+                    <li class="nav-item  mb-2   border">
+                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-drivers-license"></i>  Manage Customers </a>
+                    </li>
+                    <li class="nav-item  mb-2  border">
+                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-drivers-license"></i>  Manage Drivers </a>
+                    </li>
+                    <li class="nav-item  mb-2 border">
+                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-car"></i>  Manage Cars </a>
+                    </li>
+                    <li class="nav-item  mb-2 border">
+                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-car-tunnel"></i> Manage Rents </a>
+                    </li>
+                    <li class="nav-item  mb-2 border">
+                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-money-bill"></i> Payment </a>
+                    </li>
+                    <li class="nav-item  mb-2 border">
+                        <a class="nav-link fw-semibold " href="#"><i class="fas fa-bar-chart"></i> Report </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+&lt;!&ndash;admin-home-page&ndash;&gt;
+
+
+    </div>
+</div>-->
+
+
+<main class=" ms-sm-auto col-auto  mt-5 justify-content-center" id="adminHomeSection">
+    <div class="container mt-1 ">
+        <div class="row  mb-1 " style="color: #2b3035">
+            <div class="col-3 m-2 me-auto   border rounded-4">
+                <div class="text-center fw-semibold">
+                    <i class="fas fa-users dashboard-icon"></i>
+                    <p class="dashboard-label ">Registered Customers</p>
+                    <label class="form-label">00</label>
+                </div>
+            </div>
+            <div class="col-3  m-2 me-auto border rounded-4">
+                <div class="text-center fw-semibold">
+                    <i class="fas fa-car dashboard-icon"></i>
+                    <p class="dashboard-label">Total Bookings</p>
+                    <label class="form-label">00</label>
+                </div>
+            </div>
+            <div class="col-3 m-2 me-auto border rounded-4">
+                <div class="text-center fw-semibold">
+                    <i class="fas fa-car dashboard-icon"></i>
+                    <p class="dashboard-label">Reserved Cars</p>
+                    <label class="form-label">00</label>
+                </div>
+            </div>
+            <div class="col-3 m-2 me-auto border rounded-4">
+                <div class="text-center fw-semibold">
+                    <i class="fas fa-car dashboard-icon"></i>
+                    <p class="dashboard-label">Available Cars</p>
+                    <label class="form-label">00</label>
+                </div>
+            </div>
+            <div class="col-3 m-2 me-auto border rounded-4">
+                <div class="text-center fw-semibold">
+                    <i class="fas fa-wrench dashboard-icon"></i>
+                    <p class="dashboard-label">Maintaining Cars</p>
+                    <label class="form-label">00</label>
+                </div>
+            </div>
+            <div class="col-3 m-2 me-auto border rounded-4">
+                <div class="text-center fw-semibold">
+                    <i class="fas fa-user dashboard-icon"></i>
+                    <p class="dashboard-label">Available Drivers</p>
+                    <label class="form-label">00</label>
+                </div>
+            </div>
+            <div class="col-3 m-2 me-auto border rounded-4">
+                <div class="text-center fw-semibold">
+                    <i class="fas fa-user dashboard-icon"></i>
+                    <p class="dashboard-label">Reserved Drivers</p>
+                    <label class="form-label">00</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<main class="mt-5 justify-content-center " id="ManageCusSection">
+
+</main>
+
+<main class="mt-5 justify-content-center " id="ManageDriverSection">
+
+</main>
+
+<main class="mt-5 justify-content-center " id="ManageCarSection">
+
+</main>
+
+<main class="mt-5 justify-content-center " id="ManageRentSection">
+
+</main>
+
+<main class="mt-5 justify-content-center " id="ManagePaymentSection">
+
+</main>
+
+<main class="mt-5 justify-content-center " id="ManageReportSection">
+
+</main>
+
+
+
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
+<script>
+    //nav bar click event
+    initiateUI();
+
+    function initiateUI() {
+        clearAll();
+        $("#adminHomeSection").css("display", "none");
+        setTheLastView();
+    }
+
+    function saveLastView(clickedID) {
+        switch (clickedID) {
+            case "nav-adminHomePane":
+                localStorage.setItem("view", "HOME");
+                break;
+            case "nav-cusManagePane":
+                localStorage.setItem("view", "CUSTOMER");
+                break;
+            case "nav-driverManagePane":
+                localStorage.setItem("view", "DRIVER");
+                break;
+            case "nav-carManagePane":
+                localStorage.setItem("view", "CAR");
+                break;
+            case "nav-rentManagePane":
+                localStorage.setItem("view", "RENT");
+                break;
+            case "nav-paymentManagePane":
+                localStorage.setItem("view", "PAYMENT");
+                break;
+            case "nav-reportPane":
+                localStorage.setItem("view", "REPORT");
+                break;
+        }
+    }
+
+    function setTheLastView() {
+        let view = localStorage.getItem("view");
+        switch (view) {
+            case "HOME":
+                setView($("#adminHomeSection"));
+                break;
+            case "CUSTOMER":
+                setView($("#ManageCusSection"));
+                break;
+            case "DRIVER":
+                setView($("#ManageDriverSection"));
+                break;
+            case "CAR":
+                setView($("#ManageCarSection"));
+                break;
+            case "RENT":
+                setView($("#ManageRentSection"));
+                break;
+            case "PAYMENT":
+                setView($("#ManagePaymentSection"));
+                break;
+            case "REPORT":
+                setView($("#ManageReportSection"));
+                break;
+            default:
+                setView($("#adminHomeSection"));
+        }
+    }
+
+    function clearAll() {
+        $("#adminHomeSection,#ManageCusSection,#ManageDriverSection,#ManageRentSection,#ManagePaymentSection,#ManageReportSection").css('display', 'none');
+    }
+
+    function setView(viewOb) {
+        clearAll();
+        viewOb.css("display", "block");
+        saveLastView(viewOb.get(0).id);
+        console.log(viewOb.get(0).id);
+    }
+
+    //bind events
+    $("#nav-adminHomePane").click(function () {
+        setView($("#adminHomeSection"));
+    });
+
+    $("#nav-cusManagePane").click(function () {
+        setView($("#ManageCusSection"));
+    });
+
+    $("#nav-driverManagePane").click(function () {
+        setView($("#ManageDriverSection"));
+    });
+
+    $("#nav-carManagePane").click(function () {
+        setView($("#ManageCarSection"));
+    });
+
+    $("#nav-rentManagePane").click(function () {
+        setView($("#ManageRentSection"));
+    });
+
+    $("#nav-paymentManagePane").click(function () {
+        setView($("#ManagePaymentSection"));
+    });
+
+    $("#nav-reportPane").click(function () {
+        setView($("#ManageReportSection"));
+    });
+
+</script>
 
 </body>
 </html>
