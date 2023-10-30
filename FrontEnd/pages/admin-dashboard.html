@@ -50,7 +50,7 @@
             <a class="nav-link active" aria-current="page" href="#" id="nav-adminHomePane"><i class="fas fa-user"></i> Admin Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" id="nav-cusManagePane"><i class="fas fa-drivers-license" ></i> Manage Customers </a>
+            <a class="nav-link " href="#" id="nav-cusManagePane"><i class="fas fa-drivers-license" ></i> Manage Customers </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#" id="nav-driverManagePane"><i class="fas fa-drivers-license" ></i> Manage Drivers</a>
@@ -72,43 +72,7 @@
 
 <!--/////////////////////////-->
 
-<!--<div class="container-fluid">
-    <div class="row">
-        &lt;!&ndash; Left Sidebar &ndash;&gt;
-        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-opacity-100 sidebar border rounded-1" >
-            <div class="position-sticky">
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2 mt-2 border">
-                        <a class="nav-link active fw-semibold" href="#"><i class="fas fa-user"></i>  Admin Dashboard</a>
-                    </li>
-                    <li class="nav-item  mb-2   border">
-                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-drivers-license"></i>  Manage Customers </a>
-                    </li>
-                    <li class="nav-item  mb-2  border">
-                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-drivers-license"></i>  Manage Drivers </a>
-                    </li>
-                    <li class="nav-item  mb-2 border">
-                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-car"></i>  Manage Cars </a>
-                    </li>
-                    <li class="nav-item  mb-2 border">
-                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-car-tunnel"></i> Manage Rents </a>
-                    </li>
-                    <li class="nav-item  mb-2 border">
-                        <a class="nav-link fw-semibold" href="#"><i class="fas fa-money-bill"></i> Payment </a>
-                    </li>
-                    <li class="nav-item  mb-2 border">
-                        <a class="nav-link fw-semibold " href="#"><i class="fas fa-bar-chart"></i> Report </a>
-                    </li>
 
-                </ul>
-            </div>
-        </nav>
-
-&lt;!&ndash;admin-home-page&ndash;&gt;
-
-
-    </div>
-</div>-->
 
 
 <main class=" ms-sm-auto col-auto  mt-5 justify-content-center" id="adminHomeSection">
@@ -167,25 +131,638 @@
     </div>
 </main>
 
-<main class="mt-5 justify-content-center " id="ManageCusSection">
+<!--manage customer page-->
+<main class="mt-3 justify-content-center " id="ManageCusSection">
+    <section class="d-flex justify-content-start mx-4">
+        <button class="btn btn-primary me-5 mt-2 " id="btnAddNewCustomer" data-bs-toggle="modal"
+                data-bs-target="#registerCustomerModal">Add New Customer
+        </button>
+    </section>
 
+    <section class="mt-3 m-3 p-2 overflow-auto" >
+
+        <table class="table table-hover table-borderless shadow-sm table-light table-responsive-xxl table-responsive">
+            <thead class="sticky-top table-primary">
+            <tr>
+                <th scope="col">NIC</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">License Number</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Password</th>
+                <th scope="col">Contact</th>
+                <th scope="col">NIC Photo</th>
+                <th scope="col">License Photo</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody id="tblCustomer">
+
+            </tbody>
+        </table>
+
+    </section>
+
+    <div class="modal fade" id="registerCustomerModal" data-bs-backdrop="static"
+         data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-lg  modal-dialog-centered">
+            <div class="modal-content rounded rounded-5">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel4">Manage Customer</h5>
+                    <button type="button" class="btn-close text-white bg-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <form class="row justify-content-between p-5 rounded-5 overflow-auto" id="customerForm">
+                    <div class="mb-3 col-md-5">
+                        <label for="cusName" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="cusName" name="name">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="cusEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="cusEmail" name="email">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="cusNic" class="form-label">NIC</label>
+                        <input type="text" class="form-control" id="cusNic" name="nic"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="cusUsername" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="cusUsername" name="username"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="cusLicense" class="form-label">License Number</label>
+                        <input type="text" class="form-control" id="cusLicense" name="license"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="cusPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="cusPassword" name="password">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="cusAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="cusAddress" name="address"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="cusRe-password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="cusRe-password">
+                    </div>
+
+                    <div class="mb-3 col-md-5">
+                        <label for="cusContact" class="form-label">Contact Number</label>
+                        <input type="text" class="form-control" id="cusContact" name="contact">
+                    </div>
+
+                    <div class=" col-md-5">
+                        <div class="image-context border border-2 rounded-3"
+                             id="cusLicenseImgContext"></div>
+                        <label for="cusLicenseImage" class="form-label">License Photo</label>
+                        <input type="file" id="cusLicenseImage" class="form-control"
+                               name="licenseImage">
+                    </div>
+
+                    <div class="mb-3 col-md-5 d-flex flex-column">
+                        <div class="image-context border border-2 rounded-3"
+                             id="cusNicImgContext"></div>
+                        <label for="cusNicImage" class="form-label">NIC Photo</label>
+                        <input type="file" id="cusNicImage" class="form-control" name="nicImage">
+                    </div>
+
+                    <div class="mt-5 col-md-5 d-flex flex-column">
+                        <button type="button" class="btn btn-primary mt-3" id="btnSaveCustomer" data-bs-dismiss="modal">Submit
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </main>
 
-<main class="mt-5 justify-content-center " id="ManageDriverSection">
 
+<!--manage driver section page-->
+<main class="mt-3 justify-content-center " id="ManageDriverSection">
+    <section class="d-flex justify-content-start mx-4">
+        <button class="btn btn-primary me-5 mt-2" id="btnAddNewDriver" data-bs-toggle="modal"
+                data-bs-target="#registerDriver">Add New Driver
+        </button>
+    </section>
+
+    <section class="mt-3 m-3 p-2 overflow-auto" >
+        <table class="table table-hover table-borderless table-light shadow-sm table-responsive-xxl table-responsive">
+            <thead class="sticky-top table-primary">
+            <tr>
+                <th scope="col">NIC</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">License Number</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Username</th>
+                <th scope="col">Password</th>
+                <th scope="col">License Photo</th>
+                <th scope="col">Available</th>
+                <th scope="col">Options</th>
+            </tr>
+            </thead>
+            <tbody id="tblDriver">
+
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="registerDriver" data-bs-backdrop="static" data-bs-keyboard="false"
+         tabindex="-1"
+         aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel3">Manage Driver</h5>
+                    <button type="button" class="btn-close text-white bg-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <form class="row justify-content-between p-5 rounded-5" id="driverForm">
+                    <div class="mb-3 col-md-5">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="nic" class="form-label">NIC</label>
+                        <input type="text" class="form-control" id="nic" name="nic"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="username"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="license" class="form-label">License Number</label>
+                        <input type="text" class="form-control" id="license" name="license"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" name="address"
+                               aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="re-password" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="re-password">
+                    </div>
+
+                    <div class="mb-3 col-md-5">
+                        <label for="contact" class="form-label">Contact Number</label>
+                        <input type="text" class="form-control" id="contact" name="contact">
+                    </div>
+
+                    <div class=" col-md-5">
+                        <div class="image-context border border-2 rounded-3"
+                             id="licenseImgContext"></div>
+                        <label for="licenseImage" class="form-label">License Photo</label>
+                        <input type="file" id="licenseImage" class="form-control" name="licenseImage">
+                    </div>
+
+                    <div class="mt-5 col-md-5 d-flex flex-column">
+                        <button type="button" class="btn btn-primary mt-3" id="btnSaveDriver" data-bs-dismiss="modal">Submit
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </main>
 
+<!--manage car page-->
 <main class="mt-5 justify-content-center " id="ManageCarSection">
+    <section class="d-flex justify-content-between align-items-center mt-2">
 
+        <aside class="d-flex justify-content-center mt-2 mx-4">
+            <form class="d-flex" role="search">
+                <div class="col-md-3">
+                    <select name="type" id="searchBy" class="form-select">
+                        <option value="REG_NUM" selected>Vehicle Number</option>
+                        <option value="BRAND">Brand</option>
+                        <option value="COLOR">Color</option>
+                    </select>
+                </div>
+
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search" style="width: 350px !important;">
+
+                <div class="col-md-2 mx-5">
+                    <select name="type" id="fuelTypes" class="form-select">
+                        <option value="ALL" selected>All</option>
+                        <option value="PETROL">Petrol</option>
+                        <option value="DIESEL">Diesel</option>
+                    </select>
+                </div>
+            </form>
+        </aside>
+
+        <button class="btn btn-primary mx-5" id="btnAddNewCar" data-bs-toggle="modal"
+                data-bs-target="#registerCar">Add New Car
+        </button>
+    </section>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-3" id="cars">
+
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+         tabindex="-1"
+         aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel1">Rent Car</h5>
+                    <button type="button" class="btn-close text-white bg-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <!-- Form -->
+                <div class="d-flex justify-content-center mt-4">
+                    <form id="requestForm" class="d-flex flex-column">
+                        <section class="d-flex justify-content-between flex-lg-row flex-column gap-2">
+                            <div class="mb-3">
+                                <label for="pickUpDate" class="form-label">Pick Up Date</label>
+                                <input type="date" class="form-control" name="pickUpDate"
+                                       id="pickUpDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="pickUpTime" class="form-label">Pick Up Time</label>
+                                <input type="time" class="form-control" name="pickUpTime"
+                                       id="pickUpTime">
+                            </div>
+                            <div class="mb-3">
+                                <label for="returnDate" class="form-label">Return Date</label>
+                                <input type="date" class="form-control" name="pickUpDate"
+                                       id="returnDate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="returnTime" class="form-label">Return Time</label>
+                                <input type="time" class="form-control" name="pickUpTime"
+                                       id="returnTime">
+                            </div>
+                        </section>
+                        <section class="d-flex justify-content-between flex-lg-row flex-column">
+                            <div class="mb-3">
+                                <label for="lostDamageCost" class="form-label">Lost Damage Cost</label>
+                                <input type="text" class="form-control" name="lostDamageCost"
+                                       id="lostDamage">
+                            </div>
+                            <div class="mb-3">
+                                <label for="carCost" class="form-label">Rent Cost</label>
+                                <input type="text" class="form-control" name="carCost" id="carCost">
+                            </div>
+                        </section>
+
+                        <section
+                                class="d-flex justify-content-between flex-lg-row flex-column align-items-center">
+                            <div class="mb-3">
+                                <label for="driverRequest" class="form-label form-check-label">I want a
+                                    Driver</label>
+                                <input type="checkbox" class="form-check-input" name="driver"
+                                       id="driverRequest">
+                            </div>
+                            <div class="mb-3">
+                                <label for="driverCost" class="form-label">Driver Cost</label>
+                                <input type="text" class="form-control" name="driverCost"
+                                       id="driverCost">
+                            </div>
+                        </section>
+
+                        <section
+                                class="d-flex justify-content-between flex-lg-row flex-column align-items-center">
+                            <div class="mb-3">
+                                <label for="cost" class="form-label">Total Cost</label>
+                                <input type="text" class="form-control" name="cost" id="cost">
+                            </div>
+                        </section>
+
+                        <section
+                                class="d-flex justify-content-between flex-lg-row flex-column align-items-center">
+                            <div class="mb-3 col col-12">
+                                <label for="desc" class="form-label form-check-label">Proof the
+                                    Lost Damage Payment</label>
+                                <input type="text" class="form-control" name="description" id="desc">
+                            </div>
+                        </section>
+
+                    </form>
+                </div>
+
+                <p class="p-5 small text-secondary text-center">You should pay the lost damage cost to
+                    rent cars and the car cost can be paid after returning the car.</p>
+
+                <div class="modal-footer">
+                    <button name="" type="button" class="btn btn-warning" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-success" id="btnRequestCar"
+                            data-bs-dismiss="modal">Request
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="registerCar" data-bs-backdrop="static" data-bs-keyboard="false"
+         tabindex="-1"
+         aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel2">Manage Car</h5>
+                    <button type="button" class="btn-close text-white bg-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <form class="row justify-content-between m-5 p-5 rounded-5 bg-white shadow-sm"
+                      id="carForm">
+                    <div class="mb-3 col-md-5">
+                        <label for="regNum" class="form-label">Register Number</label>
+                        <input type="text" class="form-control" id="regNum" name="regNum">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="carType" class="form-label">Type</label>
+                        <select name="type" id="carType" class="form-control form-select">
+                            <option value="Luxury">Luxury</option>
+                            <option value="General">General</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="color" class="form-label">Color</label>
+                        <input type="text" class="form-control" id="color" name="color">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="brand" class="form-label">Brand</label>
+                        <input type="text" class="form-control" id="brand" name="brand">
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="freeMileage" class="form-label">Free Mileage</label>
+                        <div class="input-group form-control d-flex align-items-center justify-content-center"
+                             id="freeMileage">
+                            <label for="dailyRate" class="form-label me-2">Daily</label>
+                            <input type="number" class="form-control me-2" id="dailyRate"
+                                   name="dailyRate"
+                                   aria-describedby="emailHelp">
+                            <label for="monthlyRate" class="form-label me-2">Monthly</label>
+                            <input type="number" class="form-control input-group" id="monthlyRate"
+                                   name="monthlyRate"
+                                   aria-describedby="emailHelp">
+                        </div>
+                    </div>
+                    <div class="mb-3 col-md-5">
+                        <label for="fuelType" class="form-label">Fuel Type</label>
+                        <div class="form-check-inline form-control d-flex justify-content-center"
+                             id="fuelType">
+                            <input class="form-check-input me-2" type="radio" name="fuelType"
+                                   id="petrol" value="petrol">
+                            <label for="petrol" class="form-label me-5">Petrol</label>
+                            <input class="form-check-input me-2" type="radio" name="fuelType"
+                                   id="diesel" value="diesel">
+                            <label for="diesel" class="form-label">Diesel</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-5">
+                        <label for="availability" class="form-label">Availability</label>
+                        <div class="form-check-inline form-control d-flex justify-content-center"
+                             id="availability">
+                            <label for="yes" class="form-label me-2">Yes</label>
+                            <input class="form-check-input me-5" type="radio" name="availability"
+                                   id="yes" value="YES">
+                            <label for="no" class="form-label me-2">No</label>
+                            <input class="form-check-input me-5" type="radio" name="availability"
+                                   id="no" value="NO">
+                            <label for="no" class="form-label me-2">Maintain</label>
+                            <input class="form-check-input me-5" type="radio" name="availability"
+                                   id="maintain" value="MAINTAIN">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-5">
+                        <label for="price" class="form-label">Price</label>
+                        <div class="input-group form-control d-flex align-items-center justify-content-center"
+                             id="price">
+                            <label for="dailyPriceRate" class="form-label me-2">Daily</label>
+                            <input type="text" class="form-control me-2" id="dailyPriceRate"
+                                   name="dailyPriceRate"
+                                   aria-describedby="emailHelp">
+                            <label for="monthlyPriceRate" class="form-label me-2">Monthly</label>
+                            <input type="text" class="form-control input-group" id="monthlyPriceRate"
+                                   name="monthlyPriceRate"
+                                   aria-describedby="emailHelp">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-5">
+                        <label for="transmission" class="form-label">Transmission Type</label>
+                        <div class="form-check-inline form-control d-flex justify-content-center"
+                             id="transmission">
+                            <input class="form-check-input me-2" type="radio" name="transmissionType"
+                                   id="auto" value="AUTO">
+                            <label for="auto" class="form-label me-5">Auto</label>
+                            <input class="form-check-input me-2" type="radio" name="transmissionType"
+                                   id="manual" value="MANUAL">
+                            <label for="manual" class="form-label">Manual</label>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 col-md-5">
+                        <label for="extraKMPrice" class="form-label">Price Per Extra KM</label>
+                        <input type="text" class="form-control" id="extraKMPrice" name="extraKMPrice">
+                    </div>
+
+                    <div class="mb-3 col-md-5">
+                        <label for="passengers" class="form-label">Passengers</label>
+                        <input type="text" class="form-control" id="passengers" name="passengers">
+                    </div>
+
+                    <div class="mb-3 col-md-5">
+                        <label for="lostDamageCost" class="form-label">Lost Damage Cost</label>
+                        <input type="text" class="form-control" id="lostDamageCost"
+                               name="lostDamageCost">
+                    </div>
+
+                    <div class="mb-3 col-md-5">
+                        <label for="meterValue" class="form-label">Current Meter Value</label>
+                        <input type="text" class="form-control" id="meterValue" name="meterValue">
+                    </div>
+
+                    <div class="col-12 row gap-3 justify-content-center input-group">
+
+                        <aside class="d-flex justify-content-center align-items-center flex-lg-row flex-column gap-5 mb-2">
+                            <div class="col-md-5 d-flex flex-column align-items-center">
+                                <div class="image-context border border-2 rounded-3"
+                                     id="frontImgContext"></div>
+                                <label for="front" class="form-label">Front Photo</label>
+                                <input type="file" id="front" class="form-control" name="front">
+                            </div>
+
+                            <div class="col-md-5 d-flex flex-column align-items-center">
+                                <div class="image-context border border-2 rounded-3"
+                                     id="backImgContext"></div>
+                                <label for="back" class="form-label">Back Photo</label>
+                                <input type="file" id="back" class="form-control" name="back">
+                            </div>
+                        </aside>
+
+                        <aside class="d-flex justify-content-center flex-lg-row flex-column gap-5">
+                            <div class="col-md-5 d-flex flex-column align-items-center">
+                                <div class="image-context border border-2 rounded-3"
+                                     id="sideImgContext"></div>
+                                <label for="side" class="form-label">Side Photo</label>
+                                <input type="file" id="side" class="form-control" name="side">
+                            </div>
+
+                            <div class="col-md-5 d-flex flex-column align-items-center">
+                                <div class="image-context border border-2 rounded-3"
+                                     id="interiorImgContext"></div>
+                                <label for="interior" class="form-label">Interior Photo</label>
+                                <input type="file" id="interior" class="form-control" name="interior">
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                    <div class="mt-5 col-md-5 d-flex flex-column">
+                        <button type="button" class="btn btn-dark mt-3" id="btnSaveCar" data-bs-dismiss="modal">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
 </main>
 
+<!--manage rent section-->
 <main class="mt-5 justify-content-center " id="ManageRentSection">
+    <aside class="d-flex mt-5 mx-4">
+        <form class="d-flex" role="search">
+            <input class="form-control mt-3" type="search" placeholder="Search" aria-label="Search" id="searchRent">
+        </form>
+    </aside>
 
+    <section class="row gap-5 justify-content-center align-items-center p-5 mt-2" id="rent-context">
+
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="paymentModel" data-bs-backdrop="static" data-bs-keyboard="false"
+         tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Payments</h5>
+                    <button type="button" class="btn-close text-white bg-white" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+
+                <!-- Form -->
+                <div class="d-flex justify-content-center mt-4">
+                    <form id="paymentForm" class="d-flex flex-column">
+
+                        <section class="d-flex justify-content-between flex-lg-row flex-column gap-2">
+                            <div class="mb-3">
+                                <label for="total" class="form-label">Total</label>
+                                <input type="text" class="form-control" name="total" id="total">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cash" class="form-label">Cash</label>
+                                <input type="text" class="form-control" name="cash" id="cash">
+                            </div>
+                        </section>
+
+                        <section
+                                class="d-flex justify-content-between flex-lg-row flex-column align-items-center">
+                            <div class="mb-3">
+                                <label for="type" class="form-label">Payment Type</label>
+                                <select name="type" id="type" class="form-select">
+                                    <option value="Lost_Damage_Payment">Lost Damage Payment</option>
+                                    <option value="Normal_Payment">Normal Payment</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="balance" class="form-label">Balance</label>
+                                <input type="text" class="form-control" name="balance" id="balance">
+                            </div>
+                        </section>
+
+                        <section
+                                class="d-flex justify-content-between flex-lg-row flex-column align-items-center">
+                            <div class="mb-3 col col-12">
+                                <label for="description"
+                                       class="form-label form-check-label">Description</label>
+                                <input type="text" class="form-control" name="description"
+                                       id="description">
+                            </div>
+                        </section>
+
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button name="" type="button" class="btn btn-warning" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button type="button" class="btn btn-success" id="btnPayment"
+                            data-bs-dismiss="modal">Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 
+
+<!--manage payment section-->
 <main class="mt-5 justify-content-center " id="ManagePaymentSection">
+    <section class="mt-3 m-3 p-2 overflow-auto">
+        <table class="table table-hover table-borderless table-responsive-xxl table-responsive shadow-sm table-light">
+            <thead class="sticky-top table-primary">
+            <tr>
+                <th scope="col">Payment ID</th>
+                <th scope="col">Rent ID</th>
+                <th scope="col">Payment Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">Total</th>
+                <th scope="col">Cash</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Option</th>
+            </tr>
+            </thead>
+            <tbody id="tblPayment">
 
+            </tbody>
+        </table>
+    </section>
 </main>
+
+
 
 <main class="mt-5 justify-content-center " id="ManageReportSection">
 
@@ -200,7 +777,7 @@
 
     function initiateUI() {
         clearAll();
-        $("#adminHomeSection").css("display", "none");
+        // $("#adminHomeSection").css("display", "none");
         setTheLastView();
     }
 
@@ -260,14 +837,14 @@
     }
 
     function clearAll() {
-        $("#adminHomeSection,#ManageCusSection,#ManageDriverSection,#ManageRentSection,#ManagePaymentSection,#ManageReportSection").css('display', 'none');
+        $("#adminHomeSection,#ManageCarSection,#ManageCusSection,#ManageDriverSection,#ManageRentSection,#ManagePaymentSection,#ManageReportSection").css('display', 'none');
     }
 
     function setView(viewOb) {
         clearAll();
         viewOb.css("display", "block");
         saveLastView(viewOb.get(0).id);
-        console.log(viewOb.get(0).id);
+        // console.log(viewOb.get(0).id);
     }
 
     //bind events
@@ -300,6 +877,7 @@
     });
 
 </script>
+
 
 </body>
 </html>
