@@ -1,4 +1,4 @@
-// Save Customer
+// signup Customer
 let baseurl = "http://localhost:8080/carRental/";
 
 
@@ -48,7 +48,11 @@ $("#btnSaveCustomer").click(function () {
         success: function (res) {
             // saveAlert();
             // window.open("authentication.html", '_self');
-            alert("save customer successfully")
+            alert("customer signup successfully");
+            clearFieldData();
+
+            $("#signup-section").css("display", "block");
+            $("#login-section").css("display", "none");
         },
         error: function (res) {
             alert(res.message);
@@ -57,23 +61,51 @@ $("#btnSaveCustomer").click(function () {
 
 });
 
+function clearFieldData() {
+    setTextFields("", "", "", "", "", "", "","");
+}
+
+function setTextFields(nic, name, license, address, contact, email,username, password ) {
+    $('#cusNic').val(nic);
+    $('#cusName').val(name);
+    $('#cusLicense').val(license);
+    $('#cusAddress').val(address);
+    $('#cusContact').val(contact);
+    $('#cusEmail').val(email);
+    $('#cusUsername').val(username);
+    $('#cusPassword').val(password);
+
+}
 
 
-///----------------------
-// $("#btnSaveCustomer").click(function () {
-//     let formData = $("#customerForm").serialize();
-//
-//     $.ajax({
-//         url: baseurl + 'customer',
-//         method: "POST",
-//
-//         data: formData,
-//         success: function (res) {
-//             alert(res.message);
-//
-//         },
-//         error: function (error) {
-//             alert(error.responseJSON.message);
-//         }
-//     });
-// });
+//  --- login customer ----
+
+$("#btnLoginCustomer").click(function () {
+    $.ajax({
+        url: baseurl + "login",
+        method: "post",
+        data: $("#loginForm").serialize(),
+        success: function (res) {
+
+            switch (res.data.role) {
+                case "Admin":
+                    window.open("admin-dashboard.html", '_self');
+                    break;
+                case "Customer":
+                    window.open("customer-Dashboard.html", '_self');
+                    break;
+                case "Driver":
+                    window.open("driver-Dashboard.html", '_self');
+                    break;
+                default:
+                    alert("none");
+            }
+
+        },
+        error:function (res) {
+            errorAlert("Wrong User Details");
+        }
+    });
+})
+
+

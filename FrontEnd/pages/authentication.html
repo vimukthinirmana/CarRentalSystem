@@ -206,18 +206,20 @@
 <script src="../assets/js/jquery-3.7.0.min.js"></script>
 <script>
 
-    document.getElementById("login-section").style.display = "none";
-    // document.getElementById("signup-section").style.display = "block";
+ $(document).ready(function() {
+     $("#signup-section").css("display", "none");
 
-    document.getElementById("nav-signup").addEventListener("click", function () {
-        document.getElementById("signup-section").style.display = "block";
-        document.getElementById("login-section").style.display = "none";
-    });
+     $("#nav-signup").on("click", function() {
+         $("#signup-section").css("display", "block");
+         $("#login-section").css("display", "none");
+     });
 
-    document.getElementById("nav-login").addEventListener("click", function () {
-        document.getElementById("signup-section").style.display = "none";
-        document.getElementById("login-section").style.display = "block";
-    });
+     $("#nav-login").on("click", function() {
+         $("#signup-section").css("display", "none");
+         $("#login-section").css("display", "block");
+     });
+ });
+
 </script>
 </body>
 </html>
