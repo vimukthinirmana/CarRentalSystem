@@ -64,7 +64,7 @@
 <main class="container-fluid border rounded-5 col-6 mt-5 mb-5 transparentBackdrop" id="login-section">
     <section class="row justify-content-center">
         <div class="col-md-6">
-            <form class="login-form text-center">
+            <form class="login-form text-center" id="loginForm">
                 <h2 class="mb-4 m-3 text-center">Login</h2>
                 <div class="justify-content-center m-4">
                     <img src="/assets/logo/userprofile.png" style="width: 50%">
@@ -73,16 +73,16 @@
                 <div class="form-group mb-2">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="user name">
+                        <input type="text" class="form-control" placeholder="user name" id="loginUserName">
                     </div>
                 </div>
                 <div class="form-group mb-2">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-user-lock" style="color: #000000;"></i></span>
-                        <input type="password" class="form-control" placeholder="password">
+                        <input type="password" class="form-control" placeholder="password" id="loginPassword">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary m-3">Login</button>
+                <button type="submit" class="btn btn-primary m-3" id="btnLoginCustomer">Login</button>
             </form>
         </div>
     </section>
@@ -94,68 +94,68 @@
     <section class="row justify-content-center">
         <div class="col-auto ">
             <h2 class="mt-2 mb-4 text-center text-primary fw-bold">SignUp</h2>
-            <form >
+            <form id="customerForm">
                 <!--<div class="mb-3 input-group">
                     <label for="customer-Id" class="form-label">Customer ID : </label>
                     <label type="text" class="form-label" id="customer-Id" placeholder="Enter Customer ID"></label>
                 </div>-->
                 <div class="mb-3 col-auto">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input type="name" class="form-control" id="name" placeholder="name">
+                    <label for="cusName" class="form-label">Full Name</label>
+                    <input type="name" class="form-control" id="cusName" placeholder="name">
                 </div>
 
                 <div class="d-flex mb-3 col-auto">
                     <div class=" me-auto">
-                        <label for="username" class="form-label">User Name</label>
-                        <input type="text" class="form-control" id="username" placeholder="Username">
+                        <label for="cusUsername" class="form-label">User Name</label>
+                        <input type="text" class="form-control" id="cusUsername" placeholder="Username">
                     </div>
 
                     <div class="">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
+                        <label for="cusPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="cusPassword" placeholder="Password">
                     </div>
                 </div>
 
                 <div class="d-flex mb-3 col-auto">
                     <div class="me-auto">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Email">
+                        <label for="cusEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="cusEmail" placeholder="Email">
                     </div>
                     <div>
-                        <label for="contact-number" class="form-label"> Contact Number</label>
-                        <input type="text" class="form-control" id="contact-number" placeholder="Contact Number">
+                        <label for="cusContact" class="form-label"> Contact Number</label>
+                        <input type="text" class="form-control" id="cusContact" placeholder="Contact Number">
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="address" class="form-label"> Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="Address">
+                    <label for="cusAddress" class="form-label"> Address</label>
+                    <input type="text" class="form-control" id="cusAddress" placeholder="Address">
                 </div>
 
                 <div class="mb-3">
-                    <label for="nic" class="form-label">NIC Number</label>
-                    <input type="text" class="form-control" id="nic" placeholder="NIC">
+                    <label for="cusNic" class="form-label">NIC Number</label>
+                    <input type="text" class="form-control" id="cusNic" placeholder="NIC">
                 </div>
 
                 <div class="mb-3">
-                    <label for="license-number" class="form-label">License Number</label>
-                    <input type="text" class="form-control" id="license-number" placeholder="License Number">
+                    <label for="cusLicense" class="form-label">License Number</label>
+                    <input type="text" class="form-control" id="cusLicense" placeholder="License Number">
                 </div>
 
 
                 <div class="d-flex mb-3 col-auto" >
                     <div class="col-5 me-auto">
-                        <label for="license-photo" class="form-label">License Photo (Upload Image)</label>
-                        <input type="file" class="form-control" id="license-photo">
+                        <label for="cusLicenseImage" class="form-label">License Photo (Upload Image)</label>
+                        <input type="file" class="form-control" id="cusLicenseImage">
                     </div>
                     <div class="col-5">
-                        <label for="nic-photo" class="form-label">NIC Photo (Upload Image)</label>
-                        <input type="file" class="form-control" id="nic-photo">
+                        <label for="cusNicImage" class="form-label">NIC Photo (Upload Image)</label>
+                        <input type="file" class="form-control" id="cusNicImage">
                     </div>
                 </div>
 
                 <div class="d-flex mb-3 col-auto m-auto justify-content-center">
-                    <button type="submit" class="btn btn-primary ">Sign Up</button>
+                    <button type="submit" class="btn btn-primary " id="btnSaveCustomer">Sign Up</button>
                 </div>
 
             </form>
@@ -164,25 +164,6 @@
     </section>
 
 
-
-
-
-    <script src="../assets/js/jquery-3.7.0.min.js"></script>
-    <script>
-        document.getElementById("login-section");
-        document.getElementById("login-section").style.display = "none";
-        document.getElementById("signup-section").style.display = "black";
-
-        document.getElementById("nav-signup").addEventListener("click", function () {
-            document.getElementById("signup-section").style.display = "block";
-            document.getElementById("login-section").style.display = "none";
-        });
-
-        document.getElementById("nav-login").addEventListener("click", function () {
-            document.getElementById("signup-section").style.display = "none";
-            document.getElementById("login-section").style.display = "block";
-        });
-    </script>
 
 </main>
 
@@ -219,5 +200,21 @@
     </div>
 </footer>
 
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
+<script>
+    document.getElementById("login-section");
+    document.getElementById("login-section").style.display = "none";
+    document.getElementById("signup-section").style.display = "black";
+
+    document.getElementById("nav-signup").addEventListener("click", function () {
+        document.getElementById("signup-section").style.display = "block";
+        document.getElementById("login-section").style.display = "none";
+    });
+
+    document.getElementById("nav-login").addEventListener("click", function () {
+        document.getElementById("signup-section").style.display = "none";
+        document.getElementById("login-section").style.display = "block";
+    });
+</script>
 </body>
 </html>
