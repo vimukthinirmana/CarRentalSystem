@@ -45,7 +45,8 @@ $("#btnSaveCustomer").on("click", function () {
         processData: false,
         success: function (res) {
             // saveAlert();
-            window.open("authentication.html", '_self');
+            // window.open("authentication.html", '_self');
+            alert("save customer successfully")
         },
         error: function (res) {
             alert(res.message);
@@ -54,3 +55,21 @@ $("#btnSaveCustomer").on("click", function () {
 
 });
 
+///----------------------
+// $("#btnSaveCustomer").click(function () {
+//     let formData = $("#customerForm").serialize();
+//
+//     $.ajax({
+//         url: baseurl + 'customer',
+//         method: "POST",
+//
+//         data: formData,
+//         success: function (res) {
+//             alert(res.message);
+//
+//         },
+//         error: function (error) {
+//             alert(error.responseJSON.message);
+//         }
+//     });
+// });
