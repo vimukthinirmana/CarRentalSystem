@@ -1,7 +1,8 @@
 // Save Customer
-const baseurl = "http://localhost:8080/carRental/";
+let baseurl = "http://localhost:8080/carRental/";
 
-$("#btnSaveCustomer").on("click", function () {
+
+$("#btnSaveCustomer").click(function () {
 
     let data = new FormData($("#customerForm")[0]);
 
@@ -17,6 +18,7 @@ $("#btnSaveCustomer").on("click", function () {
             password: $("#cusPassword").val(),
         }
     }
+    console.log(json);
 
     $.ajax({
         url: baseurl + "customer",
@@ -54,6 +56,8 @@ $("#btnSaveCustomer").on("click", function () {
     });
 
 });
+
+
 
 ///----------------------
 // $("#btnSaveCustomer").click(function () {
