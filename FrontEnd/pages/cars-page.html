@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Car-Details</title>
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <script src="../assets/js/jquery-3.7.0.min.js"></script>
     <link rel="stylesheet" href="../assets/css/homeStyle.css">
-
+    <script src="../assets/js/bootstrap.min.js"></script>
 <style>
 
 </style>
-    <script src="../controller/cars-pageController.js"></script>
+
+
 </head>
 <body>
 <!-- Navbar -->
@@ -45,9 +45,9 @@
 </nav>
 
 
-<main class="mt-2" id="viewCars">
+<main class="mt-2" id="viewCar">
     <section class="justify-content-center col-6">
-        <form class="m-2">
+        <form class="m-2" role="search">
             <div class="d-flex mb-3 col-auto">
                     <div>
                         <select name="type" id="searchBy" class="form-select">
@@ -70,12 +70,19 @@
 
             </div>
 
-
-
         </form>
     </section>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4 mt-3" id="cars">
+
+
+    </div>
 </main>
 
-
+<!--javaScript -->
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
+<script src="../controller/cars-pageController.js"></script>
+<script src="../controller/util/LoadImageUtil.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
 </body>
 </html>

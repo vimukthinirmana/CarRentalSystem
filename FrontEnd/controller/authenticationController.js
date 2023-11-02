@@ -50,9 +50,7 @@ $("#btnSaveCustomer").click(function () {
             // window.open("authentication.html", '_self');
             alert("customer signup successfully");
             clearFieldData();
-
-            $("#signup-section").css("display", "block");
-            $("#login-section").css("display", "none");
+            returnLoginPage();
         },
         error: function (res) {
             alert(res.message);
@@ -63,6 +61,11 @@ $("#btnSaveCustomer").click(function () {
 
 function clearFieldData() {
     setTextFields("", "", "", "", "", "", "","");
+}
+
+function returnLoginPage() {
+    $("#signup-section").css("display", "block");
+    $("#login-section").css("display", "none");
 }
 
 function setTextFields(nic, name, license, address, contact, email,username, password ) {
@@ -78,34 +81,6 @@ function setTextFields(nic, name, license, address, contact, email,username, pas
 }
 
 
-//  --- login customer ----
 
-$("#btnLoginCustomer").click(function () {
-    $.ajax({
-        url: baseurl + "login",
-        method: "post",
-        data: $("#loginForm").serialize(),
-        success: function (res) {
-
-            switch (res.data.role) {
-                case "Admin":
-                    window.open("admin-dashboard.html", '_self');
-                    break;
-                case "Customer":
-                    window.open("customer-Dashboard.html", '_self');
-                    break;
-                case "Driver":
-                    window.open("driver-Dashboard.html", '_self');
-                    break;
-                default:
-                    alert("none");
-            }
-
-        },
-        error:function (res) {
-            errorAlert("Wrong User Details");
-        }
-    });
-})
 
 
