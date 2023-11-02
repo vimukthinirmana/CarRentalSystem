@@ -1,22 +1,16 @@
-package lk.ijse.carRentalSystem.entity;
+package lk.ijse.carRentalSystem.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.web.multipart.MultipartFile;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
-public class Driver {
-    @Id
+public class DriverDTO {
     private String nic;
     private String license;
     private String name;
@@ -24,8 +18,7 @@ public class Driver {
     private String contact;
     private String email;
     private String availabilityStatus;
-    @OneToOne(cascade = CascadeType.ALL)
-    private User user;
-    private String licenseImage;
+    private UserDTO user;
+    private MultipartFile licenseImage;
 
 }
