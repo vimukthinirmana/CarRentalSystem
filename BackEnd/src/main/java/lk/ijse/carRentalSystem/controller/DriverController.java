@@ -15,8 +15,8 @@ public class DriverController {
     @Autowired
     DriverService driverService;
 
-    @Autowired
-    RentService rentService;
+//    @Autowired
+//    RentService rentService;
 
     @PostMapping
     public ResponseUtil saveDriver(@RequestParam String username, @RequestParam String password, @ModelAttribute DriverDTO driverDTO) {
@@ -34,12 +34,12 @@ public class DriverController {
 
     }
 
-    @GetMapping(params = {"nic"})
-    public ResponseUtil getDriverSchedule(String nic) {
-
-        return new ResponseUtil("OK", "Successfully Loaded..!", rentService.getDriverSchedule(nic));
-
-    }
+//    @GetMapping(params = {"nic"})
+//    public ResponseUtil getDriverSchedule(String nic) {
+//
+//        return new ResponseUtil("OK", "Successfully Loaded..!", rentService.getDriverSchedule(nic));
+//
+//    }
 
     @GetMapping(path = "/all")
     public ResponseUtil getAll() {
