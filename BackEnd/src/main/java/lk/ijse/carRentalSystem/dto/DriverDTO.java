@@ -20,5 +20,4 @@ public class DriverDTO {
     private String availabilityStatus;
     private UserDTO user;
     private MultipartFile licenseImage;
-
 }
