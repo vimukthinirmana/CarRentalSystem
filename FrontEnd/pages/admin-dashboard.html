@@ -9,6 +9,9 @@
     <style>
 
     </style>
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/fonts-awesome/css/fontawesome.min.css">
+
 
 </head>
 <body>
@@ -36,8 +39,8 @@
             <!-- <li>
                  <a class="nav-link loginBtn" href="pages/authentication.html">Log In</a>
              </li>-->
-            <li class="nav-item border me-1">
-                <a class="nav-link" href="#"><i class="fas fa-user"></i> Admin-Dashboard</a>
+            <li class="nav-item border me-1" >
+                <a class="nav-link" href="#"><i class="fas fa-user"></i> <span id="user">Admin</span>-Dashboard</a>
             </li>
         </ul>
     </div>
@@ -46,26 +49,26 @@
 <!--//////////admin management- pages//////////////-->
 <main>
     <ul class="nav nav-tabs justify-content-center">
-        <li class="nav-item" id="btnHome">
-            <a class="nav-link active" aria-current="page" href="#" id="nav-adminHomePane"><i class="fas fa-user"></i> Admin Home</a>
+        <li class="nav-item"  id="nav-adminHomePane">
+            <a class="nav-link active" aria-current="page" href="#" id="btnHome" ><i class="fas fa-user"></i> Admin Home</a>
         </li>
-        <li class="nav-item" id="btnCustomer">
-            <a class="nav-link " href="#" id="nav-cusManagePane"><i class="fas fa-drivers-license" ></i> Manage Customers </a>
+        <li class="nav-item" id="nav-cusManagePane">
+            <a class="nav-link " href="#"  id="btnCustomer"><i class="fas fa-drivers-license" ></i> Manage Customers </a>
         </li>
-        <li class="nav-item" id="btnDriver">
-            <a class="nav-link" href="#" id="nav-driverManagePane"><i class="fas fa-drivers-license" ></i> Manage Drivers</a>
+        <li class="nav-item" id="nav-driverManagePane">
+            <a class="nav-link" href="#"  id="btnDriver"><i class="fas fa-drivers-license" ></i> Manage Drivers</a>
         </li>
-        <li class="nav-item" id="btnCar">
-            <a class="nav-link" href="#" id="nav-carManagePane"><i class="fas fa-drivers-license" ></i> Manage Cars</a>
+        <li class="nav-item" id="nav-carManagePane">
+            <a class="nav-link" href="#"  id="btnCar"><i class="fas fa-drivers-license" ></i> Manage Cars</a>
         </li>
-        <li class="nav-item" id="btnRent">
-            <a class="nav-link" href="#"id="nav-rentManagePane"><i class="fas fa-car-tunnel" ></i> Manage Rents</a>
+        <li class="nav-item" id="nav-rentManagePane">
+            <a class="nav-link" href="#" id="btnRent"><i class="fas fa-car-tunnel" ></i> Manage Rents</a>
         </li>
-        <li class="nav-item" id="btnManagePayment">
-            <a class="nav-link" href="#" id="nav-paymentManagePane"><i class="fas fa-money-bill"></i> Payment</a>
+        <li class="nav-item" id="nav-paymentManagePane">
+            <a class="nav-link" href="#"  id="btnManagePayment"><i class="fas fa-money-bill"></i> Payment</a>
         </li>
-        <li class="nav-item" id="btnReport">
-            <a class="nav-link" href="#" id="nav-reportPane"><i class="fas fa-bar-chart"></i> Report</a>
+        <li class="nav-item" id="nav-reportPane">
+            <a class="nav-link" href="#"  id="btnReport"><i class="fas fa-bar-chart"></i> Report</a>
         </li>
     </ul>
 </main>
@@ -885,6 +888,6 @@
 <script src="../controller/cars-pageController.js"></script>
 <script src="../controller/authenticationController.js"></script>
 <script src="../controller/loginController.js"></script>
-
+<script src="../controller/util/LoadImageUtil.js"></script>
 </body>
 </html>

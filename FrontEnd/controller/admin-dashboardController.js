@@ -20,13 +20,15 @@ $.ajax({
 });
 
 manageCustomerPage();
-
+manageCarPage();
+manageDriverPage();
 // admin home
 
 
 //manage customer page
 function manageCustomerPage() {
-    $("#btnCustomer").on("click", function () {
+
+    $("#btnCustomer").click(function () {
 
         // Upload NIC Image
         loadSelectedImage("#cusNicImage");
@@ -34,14 +36,14 @@ function manageCustomerPage() {
         // Upload License Image
         loadSelectedImage("#cusLicenseImage");
 
-        $("#btnAddNewCustomer").on("click", function () {
+        $("#btnAddNewCustomer").click(function () {
 
             $("#btnSaveCustomer").text("Save");
 
         });
 
         // Save Customer
-        $("#btnSaveCustomer").on("click", function () {
+        $("#btnSaveCustomer").click(function () {
 
             let data = new FormData($("#customerForm")[0]);
 
@@ -68,7 +70,8 @@ function manageCustomerPage() {
                 dataType: "json",
                 success: function (res) {
 
-                    $("#btnSaveCustomer").text() == "Save" ? saveAlert() : updateAlert();
+                    $("#btnSaveCustomer").text() == "Save" ? alert("save customer") : alert("update customer");
+
                     loadAllCustomers();
                 }
             });
@@ -145,6 +148,14 @@ function manageCustomerPage() {
                     }
                 });
 
+                $("#cusNic").val($(this).parent().parent().children(":eq(0)").text());
+                $("#cusName").val($(this).parent().parent().children(":eq(1)").text());
+                $("#cusLicense").val($(this).parent().parent().children(":eq(4)").text());
+                $("#cusAddress").val($(this).parent().parent().children(":eq(3)").text());
+                $("#cusContact").val($(this).parent().parent().children(":eq(7)").text());
+                $("#cusEmail").val($(this).parent().parent().children(":eq(2)").text());
+                $("#cusUsername").val($(this).parent().parent().children(":eq(5)").text());
+                $("#cusPassword").val($(this).parent().parent().children(":eq(6)").text());
 
                 $("#btnSaveCustomer").text("Update");
 
@@ -167,7 +178,6 @@ function manageCustomerPage() {
                     contentType: false,
                     processData: false,
                     success: function (res) {
-                        deleteAlert();
                         alert("customer delete successfully")
                         loadAllCustomers();
                     }
@@ -209,8 +219,7 @@ function manageCarPage() {
                     contentType: false,
                     processData: false,
                     success: function (res) {
-                        saveAlert();
-
+                        alert("car save successfully");
                         $.ajax({
                             url: baseurl + "car",
                             method: "get",
@@ -236,7 +245,7 @@ function manageCarPage() {
                     contentType: false,
                     processData: false,
                     success: function (res) {
-                        updateAlert();
+                        alert("car update successfully");
 
                         $.ajax({
                             url: baseurl + "car",
@@ -326,7 +335,7 @@ function manageCarPage() {
                         dataType: "json",
                         contentType: "application/json",
                         success: function (res) {
-                            deleteAlert();
+                            alert("car delete successfully");
                             $.ajax({
                                 url: baseurl + "car",
                                 method: "get",
@@ -495,9 +504,9 @@ function manageDriverPage() {
                 success: function (res) {
 
                     if ($("#btnSaveDriver").text() == "Save") {
-                        saveAlert();
+                        alert("Driver save successfully");
                     } else {
-                        updateAlert();
+                        alert("Driver update successfully");
                     }
 
                     loadAllDrivers();
@@ -580,7 +589,7 @@ function manageDriverPage() {
                     contentType: false,
                     processData: false,
                     success: function (res) {
-                        deleteAlert();
+                        alert("Driver delete successfully");
                         loadAllDrivers();
                     }
                 });
