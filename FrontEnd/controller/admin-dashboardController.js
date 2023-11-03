@@ -1,3 +1,112 @@
+//nav bar click event
+initiateUI();
+
+function initiateUI() {
+    clearAll();
+    // $("#adminHomeSection").css("display", "none");
+    setTheLastView();
+    manageCustomerPage();
+    manageCarPage();
+    manageDriverPage();
+    manageRentPage();
+}
+
+function saveLastView(clickedID) {
+    switch (clickedID) {
+        case "nav-adminHomePane":
+            localStorage.setItem("view", "HOME");
+            break;
+        case "nav-cusManagePane":
+            localStorage.setItem("view", "CUSTOMER");
+            break;
+        case "nav-driverManagePane":
+            localStorage.setItem("view", "DRIVER");
+            break;
+        case "nav-carManagePane":
+            localStorage.setItem("view", "CAR");
+            break;
+        case "nav-rentManagePane":
+            localStorage.setItem("view", "RENT");
+            break;
+        case "nav-paymentManagePane":
+            localStorage.setItem("view", "PAYMENT");
+            break;
+        case "nav-reportPane":
+            localStorage.setItem("view", "REPORT");
+            break;
+    }
+}
+
+function setTheLastView() {
+    let view = localStorage.getItem("view");
+    switch (view) {
+        case "HOME":
+            setView($("#adminHomeSection"));
+            break;
+        case "CUSTOMER":
+            setView($("#ManageCusSection"));
+            break;
+        case "DRIVER":
+            setView($("#ManageDriverSection"));
+            break;
+        case "CAR":
+            setView($("#ManageCarSection"));
+            break;
+        case "RENT":
+            setView($("#ManageRentSection"));
+            break;
+        case "PAYMENT":
+            setView($("#ManagePaymentSection"));
+            break;
+        case "REPORT":
+            setView($("#ManageReportSection"));
+            break;
+        default:
+            setView($("#adminHomeSection"));
+    }
+}
+
+function clearAll() {
+    $("#adminHomeSection,#ManageCarSection,#ManageCusSection,#ManageDriverSection,#ManageRentSection,#ManagePaymentSection,#ManageReportSection").css('display', 'none');
+}
+
+function setView(viewOb) {
+    clearAll();
+    viewOb.css("display", "block");
+    saveLastView(viewOb.get(0).id);
+    // console.log(viewOb.get(0).id);
+}
+
+//bind events
+$("#nav-adminHomePane").click(function () {
+    setView($("#adminHomeSection"));
+});
+
+$("#nav-cusManagePane").click(function () {
+    setView($("#ManageCusSection"));
+});
+
+$("#nav-driverManagePane").click(function () {
+    setView($("#ManageDriverSection"));
+});
+
+$("#nav-carManagePane").click(function () {
+    setView($("#ManageCarSection"));
+});
+
+$("#nav-rentManagePane").click(function () {
+    setView($("#ManageRentSection"));
+});
+
+$("#nav-paymentManagePane").click(function () {
+    setView($("#ManagePaymentSection"));
+});
+
+$("#nav-reportPane").click(function () {
+    setView($("#ManageReportSection"));
+});
+
+
 let regNum;
 let dailyMileage;
 let monthlyMileage;
@@ -19,9 +128,10 @@ $.ajax({
     }
 });
 
-manageCustomerPage();
-manageCarPage();
-manageDriverPage();
+// manageCustomerPage();
+// manageCarPage();
+// manageDriverPage();
+
 // admin home
 
 
@@ -117,7 +227,7 @@ function manageCustomerPage() {
                         <td>${customer.contact}</td>
                         <td><img src="${customer.nicImage}" alt="" srcset="" width="150" height="100"></td>
                         <td><img src="${customer.licenseImage}" alt="" srcset="" width="150" height="100"></td>
-                        <td><i class="bi bi-pen-fill text-success text-center btn btnUpdate" data-bs-toggle="modal" data-bs-target="#registerCustomerModal"></i><i class="bi bi-trash-fill text-danger text-center btn btnDelete"></i></td>
+                        <td><i class="fas fa-drivers-license text-success text-center btn btnUpdate" data-bs-toggle="modal" data-bs-target="#registerCustomerModal"></i><i class="fas fa-remove text-danger text-center btn btnDelete"></i></td>
                     </tr>
                     `);
                     }
@@ -193,7 +303,7 @@ function manageCustomerPage() {
 
 // manage car page
 function manageCarPage() {
-    $("#btnCar").on("click", function () {
+    $("#btnCar").click( function () {
 
         loadSelectedImage("#front");
         loadSelectedImage("#back");
@@ -204,7 +314,7 @@ function manageCarPage() {
             $("#btnSaveCar").text("Save");
         })
 
-        $("#btnSaveCar").on("click", function () {
+        $("#btnSaveCar").click( function () {
 
             let data = new FormData($("#carForm")[0]);
 
@@ -219,7 +329,8 @@ function manageCarPage() {
                     contentType: false,
                     processData: false,
                     success: function (res) {
-                        alert("car save successfully");
+                        alert("save car successful")
+
                         $.ajax({
                             url: baseurl + "car",
                             method: "get",
@@ -406,13 +517,13 @@ function manageCarPage() {
                     </section>
                     
                     <section class="row justify-content-between">
-                        <p class="card-text text-secondary col col-6" id="registerNum"><i class="bi bi-car-front me-1"></i>${car.regNum}</p>
+                        <p class="card-text text-secondary col col-6" id="registerNum"><i class="fas fa-car-on me-1"></i>${car.regNum}</p>
                         <p class="card-text text-secondary col col-6 text-danger text-end">${car.availability == "YES" ? "" : "Out Of Stock"}</p>
                     </section>
                         
                     <section class="d-flex justify-content-between flex-lg-row flex-column gap-1">
                         <button class="btn btn-warning btnUpdate" data-bs-toggle="modal" data-bs-target="#registerCar"><p class="card-text"><i class="bi bi-app-indicator"></i> Update </p></button>
-                        <button class="btn btn-danger btnDelete"><p class="card-text"><i class="bi bi-trash-fill"></i> Delete </p></button>
+                        <button class="btn btn-danger btnDelete"><p class="card-text"><i class="fas fa-remove"></i> Delete </p></button>
                     </section>
 
                 </div>
@@ -480,22 +591,36 @@ function manageCarPage() {
 
 // manage driver page
 function manageDriverPage() {
-    $("#btnDriver").on("click", function () {
+    $("#btnDriver").click( function () {
 
         loadAllDrivers();
 
         // Upload License Image
         loadSelectedImage("#licenseImage");
 
-        $("#btnAddNewDriver").on("click", function () {
+        $("#btnAddNewDriver").click( function () {
             $("#btnSaveDriver").text("Save");
         })
 
-        $("#btnSaveDriver").on("click", function () {
+        $("#btnSaveDriver").click( function () {
 
             let data = new FormData($("#driverForm")[0]);
 
-            $.ajax({
+            let json = {
+                nic: $("#nic").val(),
+                name: $("#name").val(),
+                license: $("#license").val(),
+                address: $("#address").val(),
+                contact: $("#contact").val(),
+                email: $("#email").val(),
+                available: $("#availability").val(),
+                user: {
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                }
+            }
+
+         /*   $.ajax({
                 url: baseurl + ($("#btnSaveDriver").text() == "Save" ? "driver" : "driver/update"),
                 method: "post",
                 data: data,
@@ -506,13 +631,42 @@ function manageDriverPage() {
                     if ($("#btnSaveDriver").text() == "Save") {
                         alert("Driver save successfully");
                     } else {
-                        alert("Driver update successfully");
+                        alert("Driver update unsuccessfully");
                     }
 
                     loadAllDrivers();
 
                 }
+            });*/
+
+            $.ajax({
+                url: baseurl + "driver",
+                method: $("#btnSaveDriver").text() == "Save" ? "post" : "put",
+                async: false,
+                data: JSON.stringify(json),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (res) {
+                    $("#btnSaveDriver").text() == "Save" ? alert("save driver") : alert("update driver");
+                    loadAllDrivers();
+                }
             });
+
+            if ($("#btnSaveDriver").text() == "Save") {
+                $.ajax({
+                    url: baseurl + "driver?image",
+                    method: "post",
+                    async: false,
+                    data: data,
+                    contentType: false,
+                    processData: false,
+                    success: function (res) {
+                        alert("save driver successful");
+                        loadAllDrivers();
+                    }
+                });
+            }
+
         });
 
         function loadAllDrivers() {
@@ -540,7 +694,7 @@ function manageDriverPage() {
                               <td>${driver.user.password}</td>
                               <td><img src="../assets${driver.licenseImage}" width="150" height="100" alt="license"></td>
                               <td>${driver.availabilityStatus}</td>
-                              <td><i class="bi bi-pen-fill text-success text-center btn btnUpdate" data-bs-toggle="modal" data-bs-target="#registerDriver"></i><i class="bi bi-trash-fill text-danger text-center btn btnDelete"></i></td>
+                              <td><i class="fas fa-drivers-license text-success text-center btn btndriverUpdate" data-bs-toggle="modal" data-bs-target="#registerDriver"></i><i class="fas fa-remove text-danger text-center btn btnDelete"></i></td>
                             </tr>
                         `)
 
@@ -555,7 +709,8 @@ function manageDriverPage() {
         }
 
         function bindUpdateEvent() {
-            $(".btnUpdate").on("click", function () {
+            $(".btndriverUpdate").on("click", function () {
+
 
                 $("#nic").val($(this).parent().parent().children(":eq(0)").text());
                 $("#name").val($(this).parent().parent().children(":eq(1)").text());
@@ -602,3 +757,307 @@ function manageDriverPage() {
 
 
 //rent page
+function manageRentPage() {
+    $("#btnRent").on("click", function () {
+
+        $.ajax({
+
+            url: baseurl + "rent/all",
+            async: false,
+            method: "get",
+            contentType: "application/json",
+            dataType: "json",
+            success: function (res) {
+                loadCards(res);
+            }
+
+        });
+
+        function loadCards(res) {
+
+            $("#rent-context").empty();
+
+
+            for (let rent of res.data) {
+
+                if ($("#searchRent").val()  == rent.rentId || $("#searchRent").val() == ""){
+
+                    $("#rent-context").append(`
+            <div class="card col col-5 text-center p-2 shadow-sm" style="min-height: 570px!important;">
+                <div class="card-body" id="${res.rentId}">
+                    <h5 class="card-title">${rent.rentId}</h5>
+                    <p class="card-text">Customer NIC : ${rent.nic.nic}</p>
+                    <p class="card-text">Customer Name : ${rent.nic.name}</p>
+                    <p class="card-text">Pick Up Date : ${rent.pickUpDate.toString().replaceAll(",", "/")}</p>
+                    <p class="card-text">Pick Up Time: ${rent.pickUpTime.toString().replaceAll(",", ":")}</p>
+                    <p class="card-text">Return Date : ${rent.returnDate.toString().replaceAll(",", "/")}</p>
+                    <p class="card-text">Return Time : ${rent.returnTime.toString().replaceAll(",", ":")}</p>
+                    <p class="card-text">Description : ${rent.description.split(".")[0]}</p>
+                    <p class="card-text">Rent Status : ${rent.status}</p>
+                    <table class="table" id=${rent.rentId}>
+                        <thead>
+                              <tr>
+                                    <th scope="col">Register Number</th>
+                                    <th scope="col">Car Cost</th>
+                                    <th scope="col">Driver Cost</th>
+                                    <th scope="col">Driver NIC</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <section class="mb-2">
+                    <button class="btn btn-success me-2 btnAccept"><i class="fas fa-calendar-check"></i> Accept</button>
+                    <button class="btn btn-success me-2 btn-warning pay" data-bs-toggle="modal" data-bs-target="#paymentModel"><i class="fas fa-paypal"></i> Pay</button>
+                    <button class="btn btn-danger btnReject me-2"><i class="fas fa-calendar-xmark"></i> Reject</button>
+                    <button class="btn btn-dark btnClose"><i class="fas fa-calendar-xmark"></i> Close</button>
+                </section>
+            </div>
+            `);
+
+                    $(`#${res.rentId} > tbody`).empty();
+
+                    for (let rentDetail of rent.rentDetails) {
+                        $(`#${rent.rentId} > tbody`).append(`
+                    <tr>
+                      <td>${rentDetail.regNum}</td>
+                      <td>${rentDetail.carCost}</td>
+                      <td>${rentDetail.driverCost}</td>
+                      <td>${rentDetail.nic == null ? "--" : rentDetail.nic}</td>
+                    </tr>  
+                `);
+                    }
+
+                }
+
+            }
+
+            bindAcceptEvent();
+            bindPayEvent();
+            bindRejectEvent();
+            bindCloseEvent();
+
+        }
+
+        $("#searchRent").on("keyup", function () {
+            $.ajax({
+
+                url: baseurl + "rent/all",
+                async: false,
+                method: "get",
+                contentType: "application/json",
+                dataType: "json",
+                success: function (res) {
+                    loadCards(res);
+                }
+
+            });
+        });
+
+        // bindManagePayment();
+
+        function bindAcceptEvent() {
+            $(".btnAccept").on("click", function () {
+
+                let text = $(this).parent().parent().children(":eq(0)").children(":eq(0)").text();
+
+                $.ajax({
+                    url: baseurl + `rent?rentId=${text}&option=accepted`,
+                    async: false,
+                    method: "put",
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (res) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Accepted..!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        $.ajax({
+
+                            url: baseurl + "rent/all",
+                            async: false,
+                            method: "get",
+                            contentType: "application/json",
+                            dataType: "json",
+                            success: function (res) {
+                                loadCards(res);
+                            }
+
+                        });
+                    }
+                });
+
+            });
+        }
+
+        function bindRejectEvent() {
+            $(".btnReject").on("click", function () {
+
+                let text = $(this).parent().parent().children(":eq(0)").children(":eq(0)").text();
+
+                $.ajax({
+                    url: baseurl + `rent?rentId=${text}&option=reject`,
+                    async: false,
+                    method: "put",
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (res) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'warning',
+                            title: 'Rejected..!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        $.ajax({
+
+                            url: baseurl + "rent/all",
+                            async: false,
+                            method: "get",
+                            contentType: "application/json",
+                            dataType: "json",
+                            success: function (res) {
+                                loadCards(res);
+                            }
+
+                        });
+                    }
+                });
+
+            });
+        }
+
+        function bindCloseEvent() {
+            $(".btnClose").on("click", function () {
+
+                let text = $(this).parent().parent().children(":eq(0)").children(":eq(0)").text();
+
+                $.ajax({
+                    url: baseurl + `rent?rentId=${text}&option=closed`,
+                    async: false,
+                    method: "put",
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (res) {
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Closed..!',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        $.ajax({
+
+                            url: baseurl + "rent/all",
+                            async: false,
+                            method: "get",
+                            contentType: "application/json",
+                            dataType: "json",
+                            success: function (res) {
+                                loadCards(res);
+                            }
+
+                        });
+                    }
+                });
+
+            });
+        }
+
+
+        function bindPayEvent() {
+
+            $(".pay").on("click", function () {
+                rentId = $(this).parent().parent().children(":eq(0)").children(":eq(0)").text();
+            });
+
+        }
+        bindManagePayment();
+
+        function bindManagePayment() {
+            $("#btnPayment").on("click", function () {
+
+                let json = {
+                    balance: $("#balance").val(),
+                    cash: $("#cash").val(),
+                    description: $("#description").val(),
+                    total: $("#total").val(),
+                    type: $("#type").val(),
+                    rentId: {
+                        rentId: rentId
+                    }
+                }
+
+                $.ajax({
+                    url: baseurl + `payment`,
+                    async: false,
+                    method: "post",
+                    data: JSON.stringify(json),
+                    dataType: "json",
+                    contentType: "application/json",
+                    success: function (res) {
+                        alert("payment successful")
+                        managePaymentsPage();
+                    }
+                });
+
+            });
+        }
+    });
+}
+
+
+
+
+
+
+//payment
+function managePaymentsPage() {
+
+    $("#btnManagePayment").on("click", function () {
+
+        loadAllPayments();
+
+    });
+
+    loadAllPayments();
+
+    function loadAllPayments() {
+
+        $.ajax({
+            url: baseurl + `payment`,
+            method: "get",
+            dataType: "json",
+            success: function (res) {
+
+                $("#tblPayment").empty();
+
+                for (let payment of res.data) {
+                    $("#tblPayment").append(`
+                    <tr>
+                        <td>${payment.paymentId}</td>
+                        <td>${payment.rentId.rentId}</td>
+                        <td>${payment.type}</td>
+                        <td>${payment.description}</td>
+                        <td>${payment.total}</td>
+                        <td>${payment.cash}</td>
+                        <td>${payment.balance}</td>
+                        <td>${payment.date.toString().replaceAll(",", "-")}</td>
+                        <td>${payment.time.toString().replaceAll(",", ":")}</td>
+                        <td><i class="fas fa-drivers-license text-success text-center btn btnUpdate" data-bs-toggle="modal" data-bs-target="#registerDriver"></i><i class="fas fa-remove text-danger text-center btn btnDelete"></i></td>
+                    </tr>
+                `);
+                }
+            }
+        });
+
+    }
+
+}
+
+//report
+

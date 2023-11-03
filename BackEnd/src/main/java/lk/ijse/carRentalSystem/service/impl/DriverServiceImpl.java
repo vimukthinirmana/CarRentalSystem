@@ -2,6 +2,7 @@ package lk.ijse.carRentalSystem.service.impl;
 
 import lk.ijse.carRentalSystem.dto.DriverDTO;
 import lk.ijse.carRentalSystem.dto.DriverSpDTO;
+import lk.ijse.carRentalSystem.entity.Customer;
 import lk.ijse.carRentalSystem.entity.Driver;
 import lk.ijse.carRentalSystem.repo.DriverRepo;
 import lk.ijse.carRentalSystem.service.DriverService;
@@ -59,7 +60,8 @@ public class DriverServiceImpl implements DriverService {
         driver.setAvailabilityStatus("YES");
         driver.getUser().setRole("Driver");
 
-        driverRepo.save(driver);
+//        driverRepo.save(driver);
+        driverRepo.save(mapper.map(driverDTO, Driver.class));
 
     }
 

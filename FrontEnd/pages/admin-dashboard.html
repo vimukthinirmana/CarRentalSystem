@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../assets/fonts-awesome/css/fontawesome.min.css">
 
 
+
 </head>
 <body>
 <!-- Navbar -->
@@ -142,7 +143,7 @@
         </button>
     </section>
 
-    <section class="mt-3 m-3 p-2 overflow-auto" >
+    <section class="mt-3 m-3 p-2 overflow-auto" style="width: 98% !important;">
 
         <table class="table table-hover table-borderless shadow-sm table-light table-responsive-xxl table-responsive">
             <thead class="sticky-top table-primary">
@@ -256,7 +257,7 @@
         </button>
     </section>
 
-    <section class="mt-3 m-3 p-2 overflow-auto" >
+    <section class="mt-3 m-3 p-2 overflow-auto" style="width: 98% !important;">
         <table class="table table-hover table-borderless table-light shadow-sm table-responsive-xxl table-responsive">
             <thead class="sticky-top table-primary">
             <tr>
@@ -773,114 +774,9 @@
 
 
 
-<script src="../assets/js/jquery-3.7.0.min.js"></script>
-<script>
-    //nav bar click event
-    initiateUI();
 
-    function initiateUI() {
-        clearAll();
-        // $("#adminHomeSection").css("display", "none");
-        setTheLastView();
-    }
 
-    function saveLastView(clickedID) {
-        switch (clickedID) {
-            case "nav-adminHomePane":
-                localStorage.setItem("view", "HOME");
-                break;
-            case "nav-cusManagePane":
-                localStorage.setItem("view", "CUSTOMER");
-                break;
-            case "nav-driverManagePane":
-                localStorage.setItem("view", "DRIVER");
-                break;
-            case "nav-carManagePane":
-                localStorage.setItem("view", "CAR");
-                break;
-            case "nav-rentManagePane":
-                localStorage.setItem("view", "RENT");
-                break;
-            case "nav-paymentManagePane":
-                localStorage.setItem("view", "PAYMENT");
-                break;
-            case "nav-reportPane":
-                localStorage.setItem("view", "REPORT");
-                break;
-        }
-    }
-
-    function setTheLastView() {
-        let view = localStorage.getItem("view");
-        switch (view) {
-            case "HOME":
-                setView($("#adminHomeSection"));
-                break;
-            case "CUSTOMER":
-                setView($("#ManageCusSection"));
-                break;
-            case "DRIVER":
-                setView($("#ManageDriverSection"));
-                break;
-            case "CAR":
-                setView($("#ManageCarSection"));
-                break;
-            case "RENT":
-                setView($("#ManageRentSection"));
-                break;
-            case "PAYMENT":
-                setView($("#ManagePaymentSection"));
-                break;
-            case "REPORT":
-                setView($("#ManageReportSection"));
-                break;
-            default:
-                setView($("#adminHomeSection"));
-        }
-    }
-
-    function clearAll() {
-        $("#adminHomeSection,#ManageCarSection,#ManageCusSection,#ManageDriverSection,#ManageRentSection,#ManagePaymentSection,#ManageReportSection").css('display', 'none');
-    }
-
-    function setView(viewOb) {
-        clearAll();
-        viewOb.css("display", "block");
-        saveLastView(viewOb.get(0).id);
-        // console.log(viewOb.get(0).id);
-    }
-
-    //bind events
-    $("#nav-adminHomePane").click(function () {
-        setView($("#adminHomeSection"));
-    });
-
-    $("#nav-cusManagePane").click(function () {
-        setView($("#ManageCusSection"));
-    });
-
-    $("#nav-driverManagePane").click(function () {
-        setView($("#ManageDriverSection"));
-    });
-
-    $("#nav-carManagePane").click(function () {
-        setView($("#ManageCarSection"));
-    });
-
-    $("#nav-rentManagePane").click(function () {
-        setView($("#ManageRentSection"));
-    });
-
-    $("#nav-paymentManagePane").click(function () {
-        setView($("#ManagePaymentSection"));
-    });
-
-    $("#nav-reportPane").click(function () {
-        setView($("#ManageReportSection"));
-    });
-
-</script>
-
+<script src="../assets/js/jquery-3.6.1.min.js"></script>
 <script src="../assets/js/jquery-3.7.0.min.js"></script>
 <script src="../controller/admin-dashboardController.js"></script>
 <script src="../controller/customer-DashboardController.js"></script>

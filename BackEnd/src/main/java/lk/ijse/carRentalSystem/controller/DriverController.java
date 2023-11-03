@@ -3,6 +3,7 @@ package lk.ijse.carRentalSystem.controller;
 import lk.ijse.carRentalSystem.dto.DriverDTO;
 import lk.ijse.carRentalSystem.dto.UserDTO;
 import lk.ijse.carRentalSystem.service.DriverService;
+import lk.ijse.carRentalSystem.service.RentService;
 import lk.ijse.carRentalSystem.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +16,8 @@ public class DriverController {
     @Autowired
     DriverService driverService;
 
-//    @Autowired
-//    RentService rentService;
+    @Autowired
+    RentService rentService;
 
     @PostMapping
     public ResponseUtil saveDriver(@RequestParam String username, @RequestParam String password, @ModelAttribute DriverDTO driverDTO) {
@@ -34,12 +35,12 @@ public class DriverController {
 
     }
 
-//    @GetMapping(params = {"nic"})
-//    public ResponseUtil getDriverSchedule(String nic) {
-//
-//        return new ResponseUtil("OK", "Successfully Loaded..!", rentService.getDriverSchedule(nic));
-//
-//    }
+    @GetMapping(params = {"nic"})
+    public ResponseUtil getDriverSchedule(String nic) {
+
+        return new ResponseUtil("OK", "Successfully Loaded..!", rentService.getDriverSchedule(nic));
+
+    }
 
     @GetMapping(path = "/all")
     public ResponseUtil getAll() {

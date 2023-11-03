@@ -1,5 +1,7 @@
 package lk.ijse.carRentalSystem.service.impl;
 
+
+
 import lk.ijse.carRentalSystem.dto.CarDTO;
 import lk.ijse.carRentalSystem.dto.CarPhotoDTO;
 import lk.ijse.carRentalSystem.dto.CarSpDTO;
@@ -121,10 +123,8 @@ public class CarServiceImpl implements CarService {
     public void deleteCar(String regNum) throws RuntimeException {
 
         if (!carRepo.existsById(regNum)) throw new RuntimeException("Car Doesn't Exist..!");
-//        Car car = carRepo.findById(regNum).get();
         rentDetailRepo.deleteRentDetailByRegNum(regNum);
 
-//        rentDetailRepo.deleteAllById(detail.getRentId());
 
         carRepo.deleteById(regNum);
 
