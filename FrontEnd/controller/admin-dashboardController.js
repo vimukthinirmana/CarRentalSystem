@@ -1,110 +1,12 @@
-//nav bar click event
-initiateUI();
 
-function initiateUI() {
-    clearAll();
-    // $("#adminHomeSection").css("display", "none");
-    setTheLastView();
+
+$(document).ready(function () {
     manageCustomerPage();
     manageCarPage();
     manageDriverPage();
     manageRentPage();
-}
-
-function saveLastView(clickedID) {
-    switch (clickedID) {
-        case "nav-adminHomePane":
-            localStorage.setItem("view", "HOME");
-            break;
-        case "nav-cusManagePane":
-            localStorage.setItem("view", "CUSTOMER");
-            break;
-        case "nav-driverManagePane":
-            localStorage.setItem("view", "DRIVER");
-            break;
-        case "nav-carManagePane":
-            localStorage.setItem("view", "CAR");
-            break;
-        case "nav-rentManagePane":
-            localStorage.setItem("view", "RENT");
-            break;
-        case "nav-paymentManagePane":
-            localStorage.setItem("view", "PAYMENT");
-            break;
-        case "nav-reportPane":
-            localStorage.setItem("view", "REPORT");
-            break;
-    }
-}
-
-function setTheLastView() {
-    let view = localStorage.getItem("view");
-    switch (view) {
-        case "HOME":
-            setView($("#adminHomeSection"));
-            break;
-        case "CUSTOMER":
-            setView($("#ManageCusSection"));
-            break;
-        case "DRIVER":
-            setView($("#ManageDriverSection"));
-            break;
-        case "CAR":
-            setView($("#ManageCarSection"));
-            break;
-        case "RENT":
-            setView($("#ManageRentSection"));
-            break;
-        case "PAYMENT":
-            setView($("#ManagePaymentSection"));
-            break;
-        case "REPORT":
-            setView($("#ManageReportSection"));
-            break;
-        default:
-            setView($("#adminHomeSection"));
-    }
-}
-
-function clearAll() {
-    $("#adminHomeSection,#ManageCarSection,#ManageCusSection,#ManageDriverSection,#ManageRentSection,#ManagePaymentSection,#ManageReportSection").css('display', 'none');
-}
-
-function setView(viewOb) {
-    clearAll();
-    viewOb.css("display", "block");
-    saveLastView(viewOb.get(0).id);
-    // console.log(viewOb.get(0).id);
-}
-
-//bind events
-$("#nav-adminHomePane").click(function () {
-    setView($("#adminHomeSection"));
-});
-
-$("#nav-cusManagePane").click(function () {
-    setView($("#ManageCusSection"));
-});
-
-$("#nav-driverManagePane").click(function () {
-    setView($("#ManageDriverSection"));
-});
-
-$("#nav-carManagePane").click(function () {
-    setView($("#ManageCarSection"));
-});
-
-$("#nav-rentManagePane").click(function () {
-    setView($("#ManageRentSection"));
-});
-
-$("#nav-paymentManagePane").click(function () {
-    setView($("#ManagePaymentSection"));
-});
-
-$("#nav-reportPane").click(function () {
-    setView($("#ManageReportSection"));
-});
+    managePaymentsPage();
+})
 
 
 let regNum;
@@ -128,9 +30,7 @@ $.ajax({
     }
 });
 
-// manageCustomerPage();
-// manageCarPage();
-// manageDriverPage();
+
 
 // admin home
 
@@ -138,7 +38,7 @@ $.ajax({
 //manage customer page
 function manageCustomerPage() {
 
-    $("#btnCustomer").click(function () {
+    $("#btnCustomerNav").click(function () {
 
         // Upload NIC Image
         loadSelectedImage("#cusNicImage");
@@ -303,7 +203,7 @@ function manageCustomerPage() {
 
 // manage car page
 function manageCarPage() {
-    $("#btnCar").click( function () {
+    $("#btnCarNav").click( function () {
 
         loadSelectedImage("#front");
         loadSelectedImage("#back");
@@ -591,7 +491,7 @@ function manageCarPage() {
 
 // manage driver page
 function manageDriverPage() {
-    $("#btnDriver").click( function () {
+    $("#btnDriverNav").click( function () {
 
         loadAllDrivers();
 
@@ -670,7 +570,6 @@ function manageDriverPage() {
         });
 
         function loadAllDrivers() {
-
             $.ajax({
                 url: baseurl + "driver/all",
                 method: "get",
@@ -710,7 +609,6 @@ function manageDriverPage() {
 
         function bindUpdateEvent() {
             $(".btndriverUpdate").on("click", function () {
-
 
                 $("#nic").val($(this).parent().parent().children(":eq(0)").text());
                 $("#name").val($(this).parent().parent().children(":eq(1)").text());
@@ -758,10 +656,9 @@ function manageDriverPage() {
 
 //rent page
 function manageRentPage() {
-    $("#btnRent").on("click", function () {
+    $("#btnRentNav").on("click", function () {
 
         $.ajax({
-
             url: baseurl + "rent/all",
             async: false,
             method: "get",
@@ -770,13 +667,11 @@ function manageRentPage() {
             success: function (res) {
                 loadCards(res);
             }
-
         });
 
         function loadCards(res) {
 
             $("#rent-context").empty();
-
 
             for (let rent of res.data) {
 
@@ -1018,7 +913,7 @@ function manageRentPage() {
 //payment
 function managePaymentsPage() {
 
-    $("#btnManagePayment").on("click", function () {
+    $("#btnManagePaymentNav").on("click", function () {
 
         loadAllPayments();
 

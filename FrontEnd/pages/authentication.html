@@ -20,9 +20,7 @@
     }
 
 </style>
-    <script src="../assets/js/jquery-3.7.0.min.js"></script>
-
-
+    <script src="../controller/loginController.js"></script>
 </head>
 <body>
 
@@ -71,16 +69,16 @@
                 <div class="form-group mb-2">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="user name" id="loginUserName">
+                        <input type="text" class="form-control" name="username" id="loginUserName">
                     </div>
                 </div>
                 <div class="form-group mb-2">
                     <div class="input-group">
                         <span class="input-group-text"><i class="fa-solid fa-user-lock" style="color: #000000;"></i></span>
-                        <input type="password" class="form-control" placeholder="password" id="loginPassword">
+                        <input type="password" class="form-control" name="password" id="loginPassword">
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary m-3" id="btnLoginCustomer">Login</button>
+                <button type="button" class="btn btn-primary m-3" id="btnLogin">Login</button>
             </form>
         </div>
     </section>
@@ -202,11 +200,14 @@
     </div>
 </footer>
 
-<script src="../controller/loginController.js"></script>
-<script src="../controller/authenticationController.js"></script>
-<script src="../assets/js/jquery-3.7.0.min.js"></script>
-<script>
 
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
+<script src="../controller/loginController.js"></script>
+<script src="../controller/util/baseurl.js"></script>
+<script src="../controller/util/LoadImageUtil.js"></script>
+<script src="../controller/authenticationController.js"></script>
+
+<script>
  $(document).ready(function() {
      $("#signup-section").css("display", "none");
 

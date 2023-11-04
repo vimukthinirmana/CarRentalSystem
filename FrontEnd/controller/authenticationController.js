@@ -1,6 +1,4 @@
 // signup Customer
-let baseurl = "http://localhost:8080/carRental/";
-
 
 $("#btnSaveCustomer").click(function () {
 

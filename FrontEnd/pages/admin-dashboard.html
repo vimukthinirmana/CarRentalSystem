@@ -6,13 +6,16 @@
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/fonts-awesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/homeStyle.css">
+    <script src="../assets/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../assets/fonts-awesome/css/fontawesome.min.css">
+    <script src="../assets/js/jquery-3.7.0.min.js"></script>
     <style>
 
     </style>
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="../assets/fonts-awesome/css/fontawesome.min.css">
-
-
+    <script src="../controller/admin-dashboardController.js"></script>
+    <script src="../controller/util/baseurl.js"></script>
+    <script src="../controller/authenticationController.js"></script>
+    <script src="../controller/loginController.js"></script>
 
 </head>
 <body>
@@ -29,10 +32,10 @@
                 <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/rental-request.html">Rent</a>
+                <a class="nav-link" href="cars-page.html">Cars</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="pages/cars-page.html">Cars</a>
+                <a class="nav-link" href="#">Service</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
@@ -51,25 +54,25 @@
 <main>
     <ul class="nav nav-tabs justify-content-center">
         <li class="nav-item"  id="nav-adminHomePane">
-            <a class="nav-link active" aria-current="page" href="#" id="btnHome" ><i class="fas fa-user"></i> Admin Home</a>
+            <a class="nav-link active" aria-current="page" href="#" id="btnHomeNav" ><i class="fas fa-user"></i> Admin Home</a>
         </li>
         <li class="nav-item" id="nav-cusManagePane">
-            <a class="nav-link " href="#"  id="btnCustomer"><i class="fas fa-drivers-license" ></i> Manage Customers </a>
+            <a class="nav-link " href="#"  id="btnCustomerNav"><i class="fas fa-drivers-license" ></i> Manage Customers </a>
         </li>
         <li class="nav-item" id="nav-driverManagePane">
-            <a class="nav-link" href="#"  id="btnDriver"><i class="fas fa-drivers-license" ></i> Manage Drivers</a>
+            <a class="nav-link" href="#"  id="btnDriverNav"><i class="fas fa-drivers-license" ></i> Manage Drivers</a>
         </li>
         <li class="nav-item" id="nav-carManagePane">
-            <a class="nav-link" href="#"  id="btnCar"><i class="fas fa-drivers-license" ></i> Manage Cars</a>
+            <a class="nav-link" href="#"  id="btnCarNav"><i class="fas fa-drivers-license" ></i> Manage Cars</a>
         </li>
         <li class="nav-item" id="nav-rentManagePane">
-            <a class="nav-link" href="#" id="btnRent"><i class="fas fa-car-tunnel" ></i> Manage Rents</a>
+            <a class="nav-link" href="#" id="btnRentNav"><i class="fas fa-car-tunnel" ></i> Manage Rents</a>
         </li>
         <li class="nav-item" id="nav-paymentManagePane">
-            <a class="nav-link" href="#"  id="btnManagePayment"><i class="fas fa-money-bill"></i> Payment</a>
+            <a class="nav-link" href="#"  id="btnManagePaymentNav"><i class="fas fa-money-bill"></i> Payment</a>
         </li>
         <li class="nav-item" id="nav-reportPane">
-            <a class="nav-link" href="#"  id="btnReport"><i class="fas fa-bar-chart"></i> Report</a>
+            <a class="nav-link" href="#"  id="btnReportNav"><i class="fas fa-bar-chart"></i> Report</a>
         </li>
     </ul>
 </main>
@@ -775,9 +778,117 @@
 
 
 
-
-<script src="../assets/js/jquery-3.6.1.min.js"></script>
 <script src="../assets/js/jquery-3.7.0.min.js"></script>
+
+<script>
+  //nav bar click event
+    initiateUI();
+
+    function initiateUI() {
+        clearAll();
+        // $("#adminHomeSection").css("display", "none");
+        setTheLastView();
+
+    }
+
+    function saveLastView(clickedID) {
+        switch (clickedID) {
+            case "nav-adminHomePane":
+                localStorage.setItem("view", "HOME");
+                break;
+            case "nav-cusManagePane":
+                localStorage.setItem("view", "CUSTOMER");
+                break;
+            case "nav-driverManagePane":
+                localStorage.setItem("view", "DRIVER");
+                break;
+            case "nav-carManagePane":
+                localStorage.setItem("view", "CAR");
+                break;
+            case "nav-rentManagePane":
+                localStorage.setItem("view", "RENT");
+                break;
+            case "nav-paymentManagePane":
+                localStorage.setItem("view", "PAYMENT");
+                break;
+            case "nav-reportPane":
+                localStorage.setItem("view", "REPORT");
+                break;
+        }
+    }
+
+    function setTheLastView() {
+        let view = localStorage.getItem("view");
+        switch (view) {
+            case "HOME":
+                setView($("#adminHomeSection"));
+                break;
+            case "CUSTOMER":
+                setView($("#ManageCusSection"));
+                break;
+            case "DRIVER":
+                setView($("#ManageDriverSection"));
+                break;
+            case "CAR":
+                setView($("#ManageCarSection"));
+                break;
+            case "RENT":
+                setView($("#ManageRentSection"));
+                break;
+            case "PAYMENT":
+                setView($("#ManagePaymentSection"));
+                break;
+            case "REPORT":
+                setView($("#ManageReportSection"));
+                break;
+            default:
+                setView($("#adminHomeSection"));
+        }
+    }
+
+    function clearAll() {
+        $("#adminHomeSection,#ManageCarSection,#ManageCusSection,#ManageDriverSection,#ManageRentSection,#ManagePaymentSection,#ManageReportSection").css('display', 'none');
+    }
+
+    function setView(viewOb) {
+        clearAll();
+        viewOb.css("display", "block");
+        saveLastView(viewOb.get(0).id);
+        // console.log(viewOb.get(0).id);
+    }
+
+    //bind events
+    $("#nav-adminHomePane").click(function () {
+        setView($("#adminHomeSection"));
+    });
+
+    $("#nav-cusManagePane").click(function () {
+        setView($("#ManageCusSection"));
+        // $('#btnCustomerNav').class="active";
+    });
+
+    $("#nav-driverManagePane").click(function () {
+        setView($("#ManageDriverSection"));
+    });
+
+    $("#nav-carManagePane").click(function () {
+        setView($("#ManageCarSection"));
+    });
+
+    $("#nav-rentManagePane").click(function () {
+        setView($("#ManageRentSection"));
+    });
+
+    $("#nav-paymentManagePane").click(function () {
+        setView($("#ManagePaymentSection"));
+    });
+
+    $("#nav-reportPane").click(function () {
+        setView($("#ManageReportSection"));
+    });
+
+</script>
+
 <script src="../controller/admin-dashboardController.js"></script>
 <script src="../controller/customer-DashboardController.js"></script>
 <script src="../controller/driver-DashboardController.js"></script>
@@ -785,5 +896,6 @@
 <script src="../controller/authenticationController.js"></script>
 <script src="../controller/loginController.js"></script>
 <script src="../controller/util/LoadImageUtil.js"></script>
+
 </body>
 </html>
